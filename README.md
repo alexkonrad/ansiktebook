@@ -131,10 +131,12 @@ TODO: write API Routes
   * Determine routes, models, associations, and controller actions
   * Finish and write tests for user authentication
   * Finish and write tests for posts (including photo and text posts)
+
 ####w1d2
   * Finish and write tests for friends
   * Finish and write tests for likes
   * Finish and write tests for tags
+
 ####w1d3
   * Finish and write tests for notifications
   * Write the JSON API
