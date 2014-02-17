@@ -1,5 +1,9 @@
 <% if logged_in? %>
 
+  <%= link_to "Feed", static_pages_url %>
+
+  <%= link_to "Profile", user_url(current_user) %>
+
   <%= button_to "Sign Out", session_url, method: :delete %>
 
 <% else %>
