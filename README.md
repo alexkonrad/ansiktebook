@@ -147,3 +147,8 @@ TODO: write API Routes
   * Make a mailer for password confirmation, forgot password
   * Add male/female option to sign up page
   * Write model and capybara specs for auth
+
+####NOTES
+* After create notification constructor helper method
+* posts/1/like or pictures/1/like all routed to the same likes controller also tags
+* notification needs no controller

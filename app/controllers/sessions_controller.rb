@@ -10,8 +10,9 @@ class SessionsController < ApplicationController
       flash[:notices] = ["logged in"]
       redirect_to static_pages_url
     else
+      @user = User.new
       flash.now[:errors] = ["invalid username or password"]
-      render :new
+      render "static_pages/index"
     end
   end
 
