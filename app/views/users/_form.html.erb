@@ -1,0 +1,36 @@
+<form action="<%= users_url %>" method="post">
+
+  <%= auth_token %>
+
+  <label for="user_username">Full Name</label>
+  <input type="text"
+         name="user[username]"
+         value="<%= user.username %>"
+         id="user_username">
+
+  <label for="user_email">Email</label>
+  <input type="email"
+         name="user[email]"
+         value="<%= user.email %>"
+         id="user_email">
+
+  <label for="user_password">Password</label>
+  <input type="password"
+         name="user[password]"
+         id="user_password">
+
+  <label for="user_password_confirmation">Password Confirmation</label>
+  <input type="password"
+         name="user[password_confirmation]"
+         id="user_password">
+
+  <label for="user_birthday">Birthday</label>
+  <input type="date"
+         name="user[birthday]"
+         value="<%= user.birthday %>"
+         id="user_birthday">
+
+  <input type="submit"
+         value="Sign Up">
+
+</form>

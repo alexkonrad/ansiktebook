@@ -141,3 +141,9 @@ TODO: write API Routes
   * Finish and write tests for notifications
   * Write the JSON API
   * Refine database queries, refactor views into partials
+
+
+####w1d1-w1d3 TODO
+  * Make a mailer for password confirmation, forgot password
+  * Add male/female option to sign up page
+  * Write model and capybara specs for auth
