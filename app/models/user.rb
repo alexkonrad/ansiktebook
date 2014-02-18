@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   before_validation :ensure_session_token
-  #after_save :make_status
 
   validates :birthday, :email, :password_digest, :session_token, :username, presence: true
   validates :email, uniqueness: true
@@ -56,15 +55,5 @@ class User < ActiveRecord::Base
 
     def ensure_session_token
       self.session_token = SecureRandom.urlsafe_base64()
-    end
-
-    def make_status
-      status = Post.new({
-        author_id: self.id,
-        recipient_id: self.id,
-        text: "I just signed up for Facebook!"
-      })
-
-      status.save
     end
 end
