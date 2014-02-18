@@ -16,4 +16,17 @@ class Post < ActiveRecord::Base
     foreign_key: :recipient_id,
     primary_key: :id
   )
+
+  has_many(
+    :likes,
+    as: :likeable,
+    foreign_key: :likeable_id,
+    primary_key: :id
+  )
+
+  has_many(
+    :liking_users,
+    through: :likes,
+    source: :user
+  )
 end

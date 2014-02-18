@@ -25,7 +25,25 @@ class User < ActiveRecord::Base
     primary_key: :id
   )
 
-  has_many :post_authors, through: :received_posts, source: :author
+  has_many(
+    :likes,
+    class_name: "Like",
+    foreign_key: :user_id,
+    primary_key: :id
+  )
+
+  has_many(
+    :liked_posts,
+    through: :likes,
+    source: :likeable,
+    source_type: "Post"
+  )
+
+  has_many(
+    :post_authors,
+    through: :received_posts,
+    source: :author
+  )
 
   def self.find_by_credentials(email, password)
     user = self.find_by_email(email)
