@@ -1,12 +1,19 @@
 class Post < ActiveRecord::Base
-  attr_accessible :content_id, :user_id
+  attr_accessible :author_id, :recipient_id, :text
 
-  belongs_to :content, polymorphic: true
-  belongs_to :user
+  validates :author_id, :recipient_id, :text, presence: true
 
-  # => TODO: name this something else. it's just a wrapper to keep things simple
-  # => or maybe wrap it up in the user model
-  def data
-    content.body.first
-  end
+  belongs_to(
+    :author,
+    class_name: "User",
+    foreign_key: :author_id,
+    primary_key: :id
+  )
+
+  belongs_to(
+    :recipient,
+    class_name: "User",
+    foreign_key: :recipient_id,
+    primary_key: :id
+  )
 end

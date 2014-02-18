@@ -1,1 +1,24 @@
-<%= render partial: "shared/profile", locals: {user: @user}%>
+<%= render partial: "shared/profile", locals: {
+  user: @user
+} %>
+
+<% if @user == current_user %>
+  <h2>Your Wall</h2>
+  <h3>Update your status:</h3>
+  <%= render partial: "shared/post_form", locals: {
+    post: @post,
+    user: @user,
+    mode: "create",
+    message: "Post"
+  } %>
+<% else %>
+  <h2><%= @user.username %>'s Wall</h2>
+  <h3>Write on <%= @user.username %>'s Wall</h3>
+  <%= render partial: "shared/post_form", locals: {
+    post: @post,
+    user: @user,
+    mode: "create",
+    message: "Post"
+  } %>
+<% end %>
+<%= render partial: "shared/post", collection: @user.received_posts %>

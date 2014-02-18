@@ -10,6 +10,22 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }, allow_nil: true
   validates :email, format: { with: EMAIL_REGEX }
 
+  has_many(
+    :authored_posts,
+    class_name: "Post",
+    foreign_key: :author_id,
+    primary_key: :id
+  )
+
+  has_many(
+    :received_posts,
+    class_name: "Post",
+    foreign_key: :recipient_id,
+    primary_key: :id
+  )
+
+  has_many :post_authors, through: :received_posts, source: :author
+
   def self.find_by_credentials(email, password)
     user = self.find_by_email(email)
 

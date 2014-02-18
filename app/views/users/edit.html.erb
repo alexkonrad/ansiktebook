@@ -1,0 +1,8 @@
+<a href="<%= user_url(@user) %>">
+  <%= @user.username %>'s Profile
+</a>
+<%= render partial: "form", locals: {
+  user: @user,
+  mode: "update",
+  message: "Update Account"
+} %>
