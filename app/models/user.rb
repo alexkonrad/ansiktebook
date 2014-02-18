@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   before_validation :ensure_session_token
-  after_save :make_status
+  #after_save :make_status
 
   validates :birthday, :email, :password_digest, :session_token, :username, presence: true
   validates :email, uniqueness: true
@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   end
 
   def status
-    self.received_posts.find_by_author_id(self.id)
+    self.received_posts.where(author_id: self.id)[0]
   end
 
   def password=(secret)
