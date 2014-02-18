@@ -1,4 +1,13 @@
-<form action="<%= users_url %>" method="post">
+<% if mode == "update"  %>
+  <% action = user_url(user) %>
+<% elsif mode == "create" %>
+  <%= action = users_url %>
+<% end %>
+<form action="<%= action %>" method="post">
+
+  <% if mode == "update" %>
+    <input type="hidden" name="_method" value="put">
+  <% end %>
 
   <%= auth_token %>
 
@@ -30,7 +39,16 @@
          value="<%= user.birthday %>"
          id="user_birthday">
 
+  <label for="user_about">About Me</label>
+  <input type="textarea"
+         name="user[about]"
+         id="user_about">
+
   <input type="submit"
-         value="Sign Up">
+         value="<%= message %>">
 
 </form>
+
+<% if mode == "update"  %>
+  <%= button_to "Delete Account", user_url(current_user), method: :delete %>
+<% end %>

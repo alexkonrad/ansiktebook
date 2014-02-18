@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
@@ -9,7 +13,8 @@ class UsersController < ApplicationController
     @user = User.new({
       username: params[:user][:username],
       email:    params[:user][:email],
-      birthday: params[:user][:birthday]
+      birthday: params[:user][:birthday],
+      about:    params[:user][:about]
     })
 
     @user.password = params[:user][:password]
@@ -29,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(:received_posts).find(params[:id])
   end
 
   def edit
@@ -37,14 +42,24 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = User.find(params[:id])
+    confirmed_password = params[:user][:password] == params[:user][:password_confirmation]
 
-    if user.update_attributes(params[:user])
+    user = User.find(params[:id])
+    user.password = params[:user][:password]
+
+    if confirmed_password && user.update_attributes({
+      username: params[:user][:username],
+      email:    params[:user][:email],
+      birthday: params[:user][:birthday],
+      about:    params[:user][:about]
+    })
+      sign_in(user)
       flash[:notices] = ["updated account"]
 
       redirect_to static_pages_url
     else
       flash.now[:errors] = user.errors.full_messages
+      flash.now[:errors].push("Enter the same password in both fields") unless confirmed_password
 
       render :edit
     end

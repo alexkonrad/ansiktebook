@@ -13,16 +13,10 @@
   * has many `LikedPosts` through `PostLikes`
 
 
-###PhotoPost
-  * attributes: `image`, `user_id`
+###Post
+  * attributes: `text`, `image`, `user_id`
 
-  * relations: belongs to `user`, has many `PostLikes`
-
-
-###TextPost
-  * attributes: `text`, `user_id`
-
-  * relations: belongs to `user`, has many `PostLikes`
+  * relations: belongs to `user`, has many `PostLikes`, belongs to 'recipient'
 
 
 ###Friendship
@@ -147,6 +141,7 @@ TODO: write API Routes
   * Make a mailer for password confirmation, forgot password
   * Add male/female option to sign up page
   * Write model and capybara specs for auth
+  * Setup pingdom or newrelic for heroku pinging
 
 ####NOTES
 * After create notification constructor helper method

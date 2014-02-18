@@ -1,0 +1,24 @@
+<% if mode == "update"  %>
+  <% action = post_url(post) %>
+  <%= button_to "Delete Post", user_post_url(post), method: :delete %>
+<% elsif mode == "create" %>
+  <% action = user_posts_url(user) %>
+<% end %>
+
+<form action="<%= action %>" method="post">
+
+  <% if mode == "update" %>
+    <input type="hidden" name="_method" value="put">
+  <% end %>
+
+  <%= auth_token %>
+
+  <label for="post_text">Post</label>
+  <input type="textarea"
+         name="post[text]"
+         id="post_text">
+
+  <input type="submit"
+         value="<%= message %>">
+
+</form>

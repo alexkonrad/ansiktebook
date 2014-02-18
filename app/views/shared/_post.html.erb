@@ -1,0 +1,21 @@
+<p>
+  <a href="<%= user_url(post.author) %>">
+    <strong><%= post.author.username %></strong>
+  </a>
+  <% unless post.author == post.recipient %>
+    <strong>></strong>
+    <a href="<%= user_url(post.recipient) %>">
+      <strong><%= post.recipient.username %></strong>
+    </a>
+  <% end %>
+</p>
+<p>
+  <em><%= post.text %></em> at
+  <%= post.created_at %>
+  <% if post.author == current_user %>
+    <%= link_to "Edit", edit_post_url(post) %>
+    <%= button_to "Delete", user_post_url(post), method: :delete %>
+  <% elsif post.recipient == current_user %>
+    <%= button_to "Delete", user_post_url(post), method: :delete %>
+  <% end %>
+</p>
