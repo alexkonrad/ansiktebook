@@ -1,8 +1,12 @@
+<h1>Facebook</h1>
 <% if logged_in? %>
+<h2>Profile</h2>
 <%= render partial: "shared/profile", locals: {
   user: @user,
   status: @status,
 } %>
+<h2>Feed</h2>
+<%= render partial: "shared/post", collection: @posts %>
 <% else %>
-<h1>Facebook</h1>
+
 <% end %>

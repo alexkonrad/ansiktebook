@@ -7,6 +7,8 @@ class StaticPagesController < ApplicationController
 
       @status = @user
         .status
+
+      @posts = Post.all
     else
       @user = User.new
     end
