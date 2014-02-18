@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(:version => 20140218143127) do
 
   create_table "posts", :force => true do |t|
     t.string   "text"
-    t.integer  "author_id"
-    t.integer  "recipient_id"
+    t.integer  "author_id",    :null => false
+    t.integer  "recipient_id", :null => false
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end

@@ -1,5 +1,14 @@
 class StaticPagesController < ApplicationController
   def index
-    @user = User.new
+    if logged_in?
+      @user = User
+        .includes(:received_posts)
+        .find(current_user.id)
+
+      @status = @user
+        .status
+    else
+      @user = User.new
+    end
   end
 end

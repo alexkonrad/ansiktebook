@@ -4,5 +4,6 @@
 <%= render partial: "form", locals: {
   user: @user,
   mode: "update",
+  action: user_url(@user),
   message: "Update Account"
 } %>

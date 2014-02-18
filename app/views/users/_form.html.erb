@@ -1,8 +1,5 @@
-<% if mode == "update"  %>
-  <% action = user_url(user) %>
-<% elsif mode == "create" %>
-  <%= action = users_url %>
-<% end %>
+<% %>
+
 <form action="<%= action %>" method="post">
 
   <% if mode == "update" %>
@@ -15,34 +12,35 @@
   <input type="text"
          name="user[username]"
          value="<%= user.username %>"
-         id="user_username">
+         id="user_username"><br>
 
   <label for="user_email">Email</label>
   <input type="email"
          name="user[email]"
          value="<%= user.email %>"
-         id="user_email">
+         id="user_email"><br>
 
   <label for="user_password">Password</label>
   <input type="password"
          name="user[password]"
-         id="user_password">
+         id="user_password"><br>
 
   <label for="user_password_confirmation">Password Confirmation</label>
   <input type="password"
          name="user[password_confirmation]"
-         id="user_password">
+         id="user_password"><br>
 
   <label for="user_birthday">Birthday</label>
   <input type="date"
          name="user[birthday]"
          value="<%= user.birthday %>"
-         id="user_birthday">
+         id="user_birthday"><br><br>
 
   <label for="user_about">About Me</label>
   <input type="textarea"
          name="user[about]"
-         id="user_about">
+         value="<%= user.about %>"
+         id="user_about"><br><br>
 
   <input type="submit"
          value="<%= message %>">
@@ -50,5 +48,7 @@
 </form>
 
 <% if mode == "update"  %>
-  <%= button_to "Delete Account", user_url(current_user), method: :delete %>
+  <p>
+    <%= button_to "Delete Account", user_url(user), method: :delete %>
+  </p>
 <% end %>

@@ -34,7 +34,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:received_posts).find(params[:id])
+    @user = User
+      .includes(:received_posts)
+      .find(params[:id])
+    @status = @user
+      .status
   end
 
   def edit

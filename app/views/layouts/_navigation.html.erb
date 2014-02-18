@@ -1,6 +1,6 @@
 <% if logged_in? %>
 
-  <%= link_to "Feed", static_pages_url %>
+  <%= link_to "Facebook", static_pages_url %>
 
   <%= link_to "Users", users_url %>
 
@@ -11,6 +11,7 @@
   <%= button_to "Sign Out", session_url, method: :delete %>
 
 <% else %>
+  <%= link_to "Facebook", static_pages_url %>
 
   <%= link_to "Sign Up", new_user_url %>
 

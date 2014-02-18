@@ -1,6 +1,5 @@
 <% if mode == "update"  %>
   <% action = post_url(post) %>
-  <%= button_to "Delete Post", user_post_url(post), method: :delete %>
 <% elsif mode == "create" %>
   <% action = user_posts_url(user) %>
 <% end %>
@@ -13,7 +12,7 @@
 
   <%= auth_token %>
 
-  <label for="post_text">Post</label>
+  <label for="post_text"></label>
   <input type="textarea"
          name="post[text]"
          id="post_text">
@@ -22,3 +21,6 @@
          value="<%= message %>">
 
 </form>
+<% if mode == "update"  %>
+  <%= button_to "Delete Post", user_post_url(post), method: :delete %>
+<% end %>

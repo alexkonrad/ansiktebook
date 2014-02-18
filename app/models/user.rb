@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   before_validation :ensure_session_token
 
   validates :birthday, :email, :password_digest, :session_token, :username, presence: true
+  validates :email, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
   validates :email, format: { with: EMAIL_REGEX }
 
@@ -30,6 +31,10 @@ class User < ActiveRecord::Base
     user = self.find_by_email(email)
 
     user && user.is_password?(password) ? user : nil
+  end
+
+  def status
+    self.received_posts.where(author_id: self.id)
   end
 
   def password=(secret)

@@ -1,6 +1,7 @@
 
 <%= render partial: "form", locals: {
   user: @user,
-  mode: "new",
+  mode: "create",
+  action: users_url(@user),
   message: "Sign Up"
 } %>

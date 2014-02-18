@@ -43,6 +43,12 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
 
+    @post.destroy
+
+    flash[:notices] = ["post deleted"]
+
+    redirect_to static_pages_url
   end
 end
