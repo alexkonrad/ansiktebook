@@ -13,7 +13,6 @@
   <em><%= post.text %></em> at
   <%= post.created_at %>
 
-  <%= post.likes.count %>
   <% if post.likes.any? %>
 
     <%= button_to "Unlike", user_post_likes_url(current_user.id, post.id), method: :delete %>
