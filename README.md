@@ -4,26 +4,19 @@
 ###User
   * attributes: `username`, `email`, `password_digest`, `session_token`, `birthday`, `about`
 
-  * relations: has many `PhotoPosts`, has many `TextPosts`, has many `Posts`
+  * relations: has many `Posts`
+
+  * has many `LikedPosts` through `PostLikes`
 
   * has many `Friendships`, has many `Friends` thru `Friendships`
 
   * has many `Notifications`, has many `PostLikes`
-
-  * has many `LikedPosts` through `PostLikes`
 
 
 ###Post
   * attributes: `text`, `image`, `user_id`
 
   * relations: belongs to `user`, has many `PostLikes`, belongs to 'recipient'
-
-
-###Friendship
-  * attributes: `friend_id`, `friended_id`
-
-  * belongs to `friend`, belongs_to `friender`
-
 
 ###PostLike
   * belongs to `Post`
@@ -35,6 +28,12 @@
   * belongs to `Post`
 
   * belongs to `User`
+
+
+###Friendship
+  * attributes: `friend_id`, `friended_id`
+
+  * belongs to `friend`, belongs_to `friender`
 
 
 ###Notification
