@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-
+    render text: "TODO: write this route"
   end
 
   def show

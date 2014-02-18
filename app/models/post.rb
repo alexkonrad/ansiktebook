@@ -29,4 +29,8 @@ class Post < ActiveRecord::Base
     through: :likes,
     source: :user
   )
+
+  def liked?
+    self.likes.any?
+  end
 end

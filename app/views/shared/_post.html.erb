@@ -12,6 +12,18 @@
 <p>
   <em><%= post.text %></em> at
   <%= post.created_at %>
+
+  <%= post.likes.count %>
+  <% if post.likes.any? %>
+
+    <%= button_to "Unlike", user_post_likes_url(current_user.id, post.id), method: :delete %>
+
+  <% else %>
+
+    <%= button_to "Like", user_post_likes_url(current_user.id, post.id), method: :post %>
+
+  <% end %>
+
   <% if post.author == current_user %>
     <%= link_to "Edit", edit_post_url(post) %>
     <%= button_to "Delete", user_post_url(post), method: :delete %>
