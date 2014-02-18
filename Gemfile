@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '1.9.3'
+
 gem 'rails', '3.2.16'
 
 # Bundle edge Rails instead:
@@ -33,8 +35,6 @@ end
 
 group :test do
   gem 'guard-rspec'
-  gem 'better_errors'
-  gem 'binding_of_caller'
 end
 
 gem 'bcrypt-ruby', require: 'bcrypt'
