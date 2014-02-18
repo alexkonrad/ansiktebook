@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   end
 
   def status
-    self.received_posts.where(author_id: self.id)
+    self.received_posts.find_by_author_id(self.id)
   end
 
   def password=(secret)

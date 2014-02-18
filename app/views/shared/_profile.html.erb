@@ -1,6 +1,16 @@
-<h1><%= user.username %></h1>
-<ul>
-  <li><%= user.email %></li>
-  <li><%= user.birthday %></li>
-  <li><%= user.about %></li>
-</ul>
+<h3><strong><%= user.username %>  </strong><em><%= status.text %></em></h3>
+
+<table>
+  <tr>
+    <td>Email</td>
+    <td><%= user.email %></td>
+  </tr>
+  <tr>
+    <td>Birthday</td>
+    <td><%= user.birthday %></td>
+  </tr>
+  <tr>
+    <td>About</td>
+    <td><%= user.about %></td>
+  </tr>
+</table>

@@ -1,6 +1,7 @@
 <% if logged_in? %>
 <%= render partial: "shared/profile", locals: {
-  user: current_user
+  user: @user,
+  status: @status,
 } %>
 <% else %>
 <h1>Facebook</h1>
