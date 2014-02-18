@@ -30,7 +30,7 @@ class Post < ActiveRecord::Base
     source: :user
   )
 
-  def liked?
-    self.likes.any?
+  def liked_by?(user)
+    self.likes.where(user_id: user).any?
   end
 end
