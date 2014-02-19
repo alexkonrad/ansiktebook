@@ -20,7 +20,9 @@
   <% if post.liked_by? current_user %>
 
     <form action="<%= user_post_likes_url(current_user.id, post.id) %>"
-          method="delete">
+          method="post">
+
+      <input type="hidden" action="_method" value="delete">
 
       <% auth_token %>
 
