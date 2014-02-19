@@ -1,0 +1,15 @@
+<form action="<%= user_photos_url %>"
+      enctype="multipart/form-data"
+      method="post">
+
+  <%= auth_token %>
+
+  <label for="photo_filename">Select a photo</label>
+  <input type="file"
+         name="photo[filename]"
+         accept="image/*"
+         id="photo_filename">
+
+  <input type="submit"
+         value="Upload">
+</form>

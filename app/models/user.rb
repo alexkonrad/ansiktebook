@@ -33,6 +33,13 @@ class User < ActiveRecord::Base
   )
 
   has_many(
+    :photos,
+    class_name: "Photo",
+    foreign_key: :user_id,
+    primary_key: :id
+  )
+
+  has_many(
     :likes,
     class_name: "Like",
     foreign_key: :user_id,

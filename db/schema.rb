@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140219143619) do
+ActiveRecord::Schema.define(:version => 20140219161236) do
 
   create_table "likes", :force => true do |t|
     t.integer  "likeable_id",   :null => false
@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(:version => 20140219143619) do
   add_index "likes", ["likeable_id"], :name => "index_likes_on_likeable_id"
   add_index "likes", ["user_id", "likeable_id"], :name => "index_likes_on_user_id_and_likeable_id", :unique => true
   add_index "likes", ["user_id"], :name => "index_likes_on_user_id"
+
+  create_table "photos", :force => true do |t|
+    t.integer  "user_id",               :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.string   "filename_file_name"
+    t.string   "filename_content_type"
+    t.integer  "filename_file_size"
+    t.datetime "filename_updated_at"
+  end
+
+  add_index "photos", ["user_id"], :name => "index_photos_on_user_id"
 
   create_table "posts", :force => true do |t|
     t.string   "text"

@@ -1,0 +1,53 @@
+<p>
+  <% if link %>
+    <a href="<%= user_photo_url(photo.user_id, photo.id) %>">
+      <img src="<%= photo.filename.url(:small) %>">
+    </a>
+  <% else %>
+    <a href="<%= user_photos_url(photo.user_id) %>">Back to Photos</a>
+    <img src="<%= photo.filename.url(:large) %>">
+
+  <% end %>
+    at
+  <%= photo.created_at %>
+  <%= photo.likes.count %>
+    likes
+
+  <% if photo.liked_by? current_user %>
+
+    <form action="<%= user_photo_likes_url(current_user.id, photo.id) %>"
+          method="post">
+
+      <input type="hidden" name="_method" value="delete">
+
+      <%= auth_token %>
+
+      <input type="hidden" name="likeable_id" value="<%= photo.id %>">
+
+      <input type="hidden" name="likeable_type" value="Photo">
+
+      <input type="submit" value="Unlike">
+
+    </form>
+
+  <% else %>
+
+    <form action="<%= user_photo_likes_url(current_user.id, photo.id) %>"
+          method="post">
+
+      <%= auth_token %>
+
+      <input type="hidden" name="likeable_id" value="<%= photo.id %>">
+
+      <input type="hidden" name="likeable_type" value="Photo">
+
+      <input type="submit" value="Like">
+
+    </form>
+
+  <% end %>
+
+  <% if photo.user == current_user %>
+    <%= button_to "Delete", photo_url(photo), method: :delete %>
+  <% end %>
+</p>

@@ -1,8 +1,8 @@
 class LikesController < ApplicationController
   def create
     @like = current_user.likes.create({
-      likeable_id: params[:post_id],
-      likeable_type: "Post"
+      likeable_id: params[:likeable_id],
+      likeable_type: params[:likeable_type]
     })
 
     flash[:notices] = ["liked"]
@@ -10,7 +10,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @like = current_user.likes.where(likeable_id: params[:post_id]).first!
+    @like = current_user.likes.where(likeable_id: params[:likeable_id]).first!
 
     @like.destroy
     flash[:notices] = ["unliked"]

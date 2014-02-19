@@ -1,0 +1,7 @@
+<% if @user == current_user %>
+  <%= link_to "Add Photo", new_user_photo_url %>
+<% end %>
+<%= render partial: "shared/photo", collection: @photos, locals: {
+  link: true,
+  size: "small"
+} %>

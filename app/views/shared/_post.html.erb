@@ -19,11 +19,27 @@
 
   <% if post.liked_by? current_user %>
 
-    <%= button_to "Unlike", user_post_likes_url(current_user.id, post.id), method: :delete %>
+    <form action="<%= user_post_likes_url(current_user.id, post.id) %>"
+          method="delete">
+      <input type="hidden" name="likeable_id" value="<%= post.id %>">
+
+      <input type="hidden" name="likeable_type" value="Post">
+
+      <input type="submit" value="Unlike">
+
+    </form>
 
   <% else %>
 
-    <%= button_to "Like", user_post_likes_url(current_user.id, post.id), method: :post %>
+    <form action="<%= user_post_likes_url(current_user.id, post.id) %>"
+          method="post">
+      <input type="hidden" name="likeable_id" value="<%= post.id %>">
+
+      <input type="hidden" name="likeable_type" value="Post">
+
+      <input type="submit" value="Like">
+
+    </form>
 
   <% end %>
 

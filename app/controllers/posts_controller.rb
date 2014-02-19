@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
+  # => TODO: add before_filter logged-in
+
   def index
+    # maybe this will be the feed
     render text: "TODO: write this route"
   end
 

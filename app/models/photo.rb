@@ -1,19 +1,19 @@
-class Post < ActiveRecord::Base
-  attr_accessible :author_id, :recipient_id, :text
+class Photo < ActiveRecord::Base
+  attr_accessible :user_id, :filename
 
-  validates :author_id, :recipient_id, :text, presence: true
+  validates :user_id, presence: true
+
+  has_attached_file :filename, styles: {
+    large: "400x600>",
+    small: "200x200>"
+  }
+
+  validates_attachment_content_type :filename, content_type: %w(image/jpeg image/jpg image/png)
 
   belongs_to(
-    :author,
+    :user,
     class_name: "User",
-    foreign_key: :author_id,
-    primary_key: :id
-  )
-
-  belongs_to(
-    :recipient,
-    class_name: "User",
-    foreign_key: :recipient_id,
+    foreign_key: :user_id,
     primary_key: :id
   )
 
