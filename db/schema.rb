@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140219161236) do
+ActiveRecord::Schema.define(:version => 20140219223748) do
 
   create_table "likes", :force => true do |t|
     t.integer  "likeable_id",   :null => false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20140219161236) do
   end
 
   add_index "likes", ["likeable_id"], :name => "index_likes_on_likeable_id"
-  add_index "likes", ["user_id", "likeable_id"], :name => "index_likes_on_user_id_and_likeable_id", :unique => true
+  add_index "likes", ["user_id", "likeable_id", "likeable_type"], :name => "index_likes_on_user_id_and_likeable_id_and_likeable_type", :unique => true
   add_index "likes", ["user_id"], :name => "index_likes_on_user_id"
 
   create_table "photos", :force => true do |t|
