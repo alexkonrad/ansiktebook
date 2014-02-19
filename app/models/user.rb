@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
 
-  attr_accessible :about, :birthday, :email, :password_digest, :session_token, :username
+  attr_accessible :about, :birthday, :email, :password_digest, :session_token, :username, :profile_picture
   attr_reader :password
 
   before_validation :ensure_session_token
@@ -10,6 +10,11 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
   validates :email, format: { with: EMAIL_REGEX }
+
+  has_attached_file :profile_picture, styles: {
+    big: "600x600#",
+    small: "150x150#"
+  }
 
   has_many(
     :authored_posts,
