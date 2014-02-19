@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def create
     confirmed_password = params[:user][:password] == params[:user][:password_confirmation]
 
+    # => TODO: whitelist password & password_confirmation
     @user = User.new({
       username: params[:user][:username],
       email:    params[:user][:email],
@@ -17,8 +18,6 @@ class UsersController < ApplicationController
       about:    params[:user][:about],
       profile_picture: params[:user][:profile_picture]
     })
-
-    #@user = User.new(params[:user])
 
     @user.password = params[:user][:password]
 
