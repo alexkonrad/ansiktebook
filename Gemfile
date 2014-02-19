@@ -38,6 +38,9 @@ group :test do
 end
 
 gem 'bcrypt-ruby', require: 'bcrypt'
+gem 'paperclip'
+gem 'aws-sdk'
+gem 'figaro'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
