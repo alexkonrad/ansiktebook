@@ -35,13 +35,5 @@ Facebook::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => ENV["DEVELOPMENT"],
-      :access_key_id => ENV["ACCESS_KEY_ID"],
-      :secret_access_key => ENV["SECRET_ACCESS_KEY"],
-      :s3_host_name => 's3-us-west-1.amazonaws.com'
-    }
-  }
+
 end

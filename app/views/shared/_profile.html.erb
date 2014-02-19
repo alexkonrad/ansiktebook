@@ -1,5 +1,8 @@
 <h3><strong><%= user.username %>  </strong><em><%= status.text if status %></em></h3>
 
+<img src="<%= user.profile_picture.url(:large) %>"
+     height=300
+     width=300>
 <table>
   <tr>
     <td>Email</td>

@@ -14,8 +14,11 @@ class UsersController < ApplicationController
       username: params[:user][:username],
       email:    params[:user][:email],
       birthday: params[:user][:birthday],
-      about:    params[:user][:about]
+      about:    params[:user][:about],
+      profile_picture: params[:user][:profile_picture]
     })
+
+    #@user = User.new(params[:user])
 
     @user.password = params[:user][:password]
 

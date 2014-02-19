@@ -1,4 +1,7 @@
 <p>
+  <img src="<%= post.author.profile_picture.url(:small) %>"
+       height=75
+       width=75>
   <a href="<%= user_url(post.author) %>">
     <strong><%= post.author.username %></strong>
   </a>

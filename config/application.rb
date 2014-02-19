@@ -70,5 +70,14 @@ module Facebook
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.paperclip_defaults = {
+      :storage => :s3,
+      :bucket => ENV["AWS_BUCKET"],
+      :s3_credentials => {
+        :access_key_id => ENV["ACCESS_KEY_ID"],
+        :secret_access_key => ENV["SECRET_ACCESS_KEY"]
+      }
+    }
   end
 end

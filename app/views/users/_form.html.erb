@@ -1,6 +1,6 @@
-<% %>
-
-<form action="<%= action %>" method="post">
+<form action="<%= action %>"
+      enctype="multipart/form-data"
+      method="post">
 
   <% if mode == "update" %>
     <input type="hidden" name="_method" value="put">
@@ -29,6 +29,13 @@
   <input type="password"
          name="user[password_confirmation]"
          id="user_password"><br>
+
+  <label for="user_profile_picture">Profile Picture</label>
+  <input type="file"
+         name="user[profile_picture]"
+         accept="image/*"
+         value="<%= user.profile_picture %>"
+         id="user_profile_picture">
 
   <label for="user_birthday">Birthday</label>
   <input type="date"

@@ -12,9 +12,11 @@ class User < ActiveRecord::Base
   validates :email, format: { with: EMAIL_REGEX }
 
   has_attached_file :profile_picture, styles: {
-    big: "600x600#",
+    large: "600x600#",
     small: "150x150#"
   }
+
+  validates_attachment_content_type :profile_picture, content_type: %w(image/jpeg image/jpg image/png)
 
   has_many(
     :authored_posts,

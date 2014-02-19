@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140218200936) do
+ActiveRecord::Schema.define(:version => 20140219143619) do
 
   create_table "likes", :force => true do |t|
     t.integer  "likeable_id",   :null => false
@@ -43,8 +43,12 @@ ActiveRecord::Schema.define(:version => 20140218200936) do
     t.string   "session_token"
     t.date     "birthday"
     t.text     "about"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.string   "profile_picture_file_name"
+    t.string   "profile_picture_content_type"
+    t.integer  "profile_picture_file_size"
+    t.datetime "profile_picture_updated_at"
   end
 
 end
