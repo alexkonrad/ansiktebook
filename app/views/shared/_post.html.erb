@@ -22,9 +22,9 @@
     <form action="<%= user_post_likes_url(current_user.id, post.id) %>"
           method="post">
 
-      <input type="hidden" action="_method" value="delete">
+      <input type="hidden" name="_method" value="delete">
 
-      <% auth_token %>
+      <%= auth_token %>
 
       <input type="hidden" name="likeable_id" value="<%= post.id %>">
 
