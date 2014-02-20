@@ -1,40 +1,33 @@
 <% if logged_in? %>
-
-  <%= link_to "Facebook", static_pages_url %>
-
-  <%= link_to "Users", users_url %>
-
-  <%= link_to "Profile", user_url(current_user) %>
-
-  <%= link_to "Photos", user_photos_url(current_user) %>
-
-  <%= link_to "Account Settings", edit_user_url(current_user) %>
-
-  <%= button_to "Sign Out", session_url, method: :delete %>
-
+  <div class="navbar logged-in">
+    <a href="<%= static_pages_url %>">Facebook</a>
+    <a href="<%= users_url %>">Users</a>
+    <a href="<%= user_url(current_user) %>">Profile</a>
+    <a href="<%= user_photos_url(current_user) %>">Photos</a>
+    <a href="<%= edit_user_url(current_user) %>">Settings</a>
+    <%= button_to "Sign Out", session_url, method: :delete %>
+  </div>
 <% else %>
-  <%= link_to "Facebook", static_pages_url %>
+  <div class="navbar logged-out">
+    <a href="<%= static_pages_url %>">Facebook</a>
+    <a href="<%= new_user_url %>">Sign Up</a>
+    <form action="<%= session_url %>" method="post">
 
-  <%= link_to "Sign Up", new_user_url %>
+      <%= auth_token %>
 
-  <form action="<%= session_url %>" method="post">
+      <label for="user_email">Email</label>
+      <input type="email"
+             name="user[email]"
+             value="<%= @user.email %>"
+             id="user_username">
 
-    <%= auth_token %>
+      <label for="user_password">Password</label>
+      <input type="password"
+             name="user[password]"
+             id="user_password">
 
-    <label for="user_email">Email</label>
-    <input type="email"
-           name="user[email]"
-           value="<%= @user.email %>"
-           id="user_username">
-
-    <label for="user_password">Password</label>
-    <input type="password"
-           name="user[password]"
-           id="user_password">
-
-    <input type="submit"
-           value="Sign In">
-
-  </form>
-
+      <input type="submit"
+             value="Sign In">
+    </form>
+  </div>
 <% end %>

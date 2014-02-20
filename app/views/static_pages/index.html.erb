@@ -1,14 +1,19 @@
-<h1>Facebook</h1>
-<% if logged_in? %>
-<h2>Profile</h2>
-<%= render partial: "shared/profile", locals: {
-  user: @user,
-  status: @status,
-} %>
-<h2>Feed</h2>
-<%= render partial: "shared/post", collection: @posts %>
-<h2>Friend Requests</h2>
-<%= render partial: "shared/friend_requests", collection: @users, as: :user %>
-<% else %>
+<div class="index">
+  <% if logged_in? %>
+    <%= render partial: "shared/profile", locals: {
+      user: @user,
+      status: @status,
+    } %>
+  <%= render partial: "shared/post_form", locals: {
+    post: @post,
+    user: @user,
+    mode: "create",
+    message: "Post"
+  } %>
+  <%= render partial: "shared/post", collection: @posts %>
+  <h2>Friend Requests</h2>
+  <%= render partial: "shared/friend_requests", collection: @users, as: :user %>
+  <% else %>
 
-<% end %>
+  <% end %>
+</div>

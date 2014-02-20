@@ -1,15 +1,30 @@
-<% if flash[:errors] %>
-  <% flash[:errors].each do |error| %>
+<style>
+.flashes {
+  margin: 20px 0;
+}
+.errors {
+  color: red;
+}
 
-    <strong class="errors"><%= error %></strong><br>
+.notices {
+  color: green;
+}
 
+</style>
+<div class="flashes">
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+
+      <strong class="errors"><%= error %></strong><br>
+
+    <% end %>
   <% end %>
-<% end %>
 
-<% if flash[:notices] %>
-  <% flash[:notices].each do |notice| %>
+  <% if flash[:notices] %>
+    <% flash[:notices].each do |notice| %>
 
-    <strong class="notices"><%= notice %></strong><br>
+      <strong class="notices"><%= notice %></strong><br>
 
+    <% end %>
   <% end %>
-<% end %>
+</div>

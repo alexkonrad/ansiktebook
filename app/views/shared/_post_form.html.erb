@@ -1,3 +1,4 @@
+<div class="post-form">
 <% if mode == "update"  %>
   <% action = post_url(post) %>
 <% elsif mode == "create" %>
@@ -12,15 +13,19 @@
 
   <%= auth_token %>
 
-  <label for="post_text"></label>
-  <input type="textarea"
-         name="post[text]"
-         id="post_text">
-
+  <div class="post-text">
+    <label for="post_text"></label>
+    <input type="textarea"
+           name="post[text]"
+           id="post_text">
+  </div>
+  <div class="post-submit">
   <input type="submit"
          value="<%= message %>">
+  </div>
 
 </form>
 <% if mode == "update"  %>
   <%= button_to "Delete Post", user_post_url(post), method: :delete %>
 <% end %>
+</div>

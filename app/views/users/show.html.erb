@@ -1,12 +1,9 @@
-<h2>Profile</h2>
 <%= render partial: "shared/profile", locals: {
   user: @user,
   status: @status
 } %>
 
 <% if @user == current_user %>
-  <h2>Your Wall</h2>
-  <h3>Update your status:</h3>
   <%= render partial: "shared/post_form", locals: {
     post: @post,
     user: @user,

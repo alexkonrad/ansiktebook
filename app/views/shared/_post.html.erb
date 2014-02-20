@@ -1,7 +1,9 @@
+<div class="post">
 <p>
   <img src="<%= post.author.profile_picture.url(:small) %>"
        height=75
        width=75>
+
   <a href="<%= user_url(post.author) %>">
     <strong><%= post.author.username %></strong>
   </a>
@@ -14,10 +16,6 @@
 </p>
 <p>
   <em><%= post.text %></em>
-  <p>posted <%= time_ago_in_words post.created_at %> ago</p>
-  <p><%= post.likes.count %>
-    <%= post.likes.count == 1 ? "like" : "likes" %></p>
-
   <% if post.liked_by? current_user %>
 
     <form action="<%= user_post_likes_url(current_user.id, post.id) %>"
@@ -51,6 +49,10 @@
     </form>
 
   <% end %>
+  <p>posted <%= time_ago_in_words post.created_at %> ago</p>
+
+  <p><%= post.likes.count %>
+    <%= post.likes.count == 1 ? "like" : "likes" %></p>
 
   <% if post.author == current_user %>
     <%= link_to "Edit", edit_post_url(post) %>
@@ -59,3 +61,4 @@
     <%= button_to "Delete", post_url(post), method: :delete %>
   <% end %>
 </p>
+</div>

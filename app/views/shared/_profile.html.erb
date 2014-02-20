@@ -1,3 +1,4 @@
+<div class="profile">
 <h3><strong><%= user.username %>  </strong><em><%= status.text if status %></em></h3>
 
 <% if user != current_user %>
@@ -57,8 +58,8 @@
     <td>Birthday</td>
     <td><%= user.birthday %></td>
   </tr>
-  <tr>
-    <td>About</td>
-    <td><%= user.about %></td>
-  </tr>
 </table>
+<div class="about">
+  <%= user.about %>
+</div>
+</div>
