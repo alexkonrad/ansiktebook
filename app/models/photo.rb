@@ -25,6 +25,9 @@ class Photo < ActiveRecord::Base
     dependent: :destroy
   )
 
+  has_many :tags
+  has_many :tagged_users, through: :tags, source: :tagged
+
   # note: is this necessary? or right?
   has_many(
     :liking_users,

@@ -19,6 +19,23 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :profile_picture, content_type: %w(image/jpeg image/jpg image/png)
 
   has_many(
+    :photo_taggings,
+    class_name: "Tag",
+    foreign_key: :tagged_id,
+    primary_key: :id
+  )
+
+  has_many :tagged_photos, through: :photo_taggings, source: :photo
+
+  # do i need to keep track of this?
+  has_many(
+    :photo_taggings_made,
+    class_name: "Tag",
+    foreign_key: :tagger_id,
+    primary_key: :id
+  )
+
+  has_many(
     :friendships,
     class_name: "Friendship",
     foreign_key: :user_id,
@@ -51,9 +68,9 @@ class User < ActiveRecord::Base
   )
 
   has_many(
-  :friend_requesters,
-  through: :received_friend_requests,
-  source: :sender
+    :friend_requesters,
+    through: :received_friend_requests,
+    source: :sender
   )
 
   has_many(
@@ -109,6 +126,10 @@ class User < ActiveRecord::Base
 
   def sent_friend_request?(user)
     !!find_friend_request_by_user_id(user.id)
+  end
+
+  def all_friends
+    self.friends + self.inverse_friends
   end
 
   def is_friend?(user)

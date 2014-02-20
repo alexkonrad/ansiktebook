@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140219232222) do
+ActiveRecord::Schema.define(:version => 20140220150223) do
 
   create_table "friend_requests", :force => true do |t|
     t.integer  "sender_id",    :null => false
@@ -67,6 +67,18 @@ ActiveRecord::Schema.define(:version => 20140219232222) do
 
   add_index "posts", ["author_id"], :name => "index_posts_on_author_id"
   add_index "posts", ["recipient_id"], :name => "index_posts_on_recipient_id"
+
+  create_table "tags", :force => true do |t|
+    t.integer  "tagger_id",  :null => false
+    t.integer  "tagged_id",  :null => false
+    t.integer  "photo_id",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "tags", ["tagged_id", "photo_id"], :name => "index_tags_on_tagged_id_and_photo_id", :unique => true
+  add_index "tags", ["tagged_id"], :name => "index_tags_on_tagged_id"
+  add_index "tags", ["tagger_id"], :name => "index_tags_on_tagger_id"
 
   create_table "users", :force => true do |t|
     t.string   "username"

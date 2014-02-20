@@ -5,13 +5,13 @@
     </a>
   <% else %>
     <a href="<%= user_photos_url(photo.user_id) %>">Back to Photos</a>
-    <img src="<%= photo.filename.url(:large) %>">
+    <p><img src="<%= photo.filename.url(:large) %>"></p>
 
   <% end %>
-    at
-  <%= photo.created_at %>
-  <%= photo.likes.count %>
-    likes
+
+  <p>at <%= time_ago_in_words photo.created_at %> ago</p>
+  <p><%= photo.likes.count %>
+    <%= photo.likes.count == 1 ? "like" : "likes" %></p>
 
   <% if photo.liked_by? current_user %>
 
@@ -46,6 +46,48 @@
     </form>
 
   <% end %>
+
+  <% photo.tags.each do |tag| %>
+
+  <% if tag.tagged == current_user ||
+        tag.tagger == current_user ||
+        photo.user == current_user %>
+
+    <a href="<%= user_url(tag.tagged) %>"><%= tag.tagged.username %></a>
+
+    <%= button_to "Untag #{tag.tagged.username}",
+                  user_photo_tags_url(tag.tagged_id, photo.id),
+                  method: :delete %>
+
+  <% else %>
+
+    <a href="<%= user_url(tag.tagged) %>"><%= tag.tagged.username %></a>
+
+  <% end %>
+
+  <% end %>
+
+  <form action="<%= user_photo_tags_url(photo.user_id, photo.id) %>" method="post">
+
+    <%= auth_token %>
+
+      <select name="tagged_user_id">
+        <option value="<%= current_user.id %>">
+          <%= current_user.username %>
+        </option>
+        <% current_user.all_friends.each do |friend| %>
+
+          <option value="<%= friend.id %>">
+
+            <%= friend.username %>
+
+          </option>
+
+        <% end %>
+      </select>
+
+      <input type="submit" value="Tag a Friend">
+  </form>
 
   <% if photo.user == current_user %>
     <%= button_to "Delete", photo_url(photo), method: :delete %>

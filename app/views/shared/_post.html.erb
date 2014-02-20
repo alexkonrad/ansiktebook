@@ -13,9 +13,10 @@
   <% end %>
 </p>
 <p>
-  <em><%= post.text %></em> at
-  <%= post.created_at %>
-  <%= post.likes.count %> likes
+  <em><%= post.text %></em>
+  <p>posted <%= time_ago_in_words post.created_at %> ago</p>
+  <p><%= post.likes.count %>
+    <%= post.likes.count == 1 ? "like" : "likes" %></p>
 
   <% if post.liked_by? current_user %>
 

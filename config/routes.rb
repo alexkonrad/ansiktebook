@@ -7,6 +7,7 @@ Facebook::Application.routes.draw do
     end
     resources :photos, only: [:new, :create, :index]
     resources :photos, only: [:show] do
+      resource :tags, only: [:create, :destroy]
       resource :likes, only: [:create, :destroy]
     end
     resource :friend_request, only: [:create, :destroy]
