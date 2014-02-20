@@ -21,7 +21,8 @@ class Photo < ActiveRecord::Base
     :likes,
     as: :likeable,
     foreign_key: :likeable_id,
-    primary_key: :id
+    primary_key: :id,
+    dependent: :destroy
   )
 
   # note: is this necessary? or right?

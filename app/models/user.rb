@@ -19,31 +19,67 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :profile_picture, content_type: %w(image/jpeg image/jpg image/png)
 
   has_many(
+    :friendships,
+    class_name: "Friendship",
+    foreign_key: :user_id,
+  )
+
+  has_many :friends, through: :friendships, source: :friend
+
+  has_many(
+    :inverse_friendships,
+    class_name: "Friendship",
+    foreign_key: :friend_id
+  )
+
+  has_many :inverse_friends, through: :inverse_friendships, source: :user
+
+  has_many(
+    :sent_friend_requests,
+    class_name: "FriendRequest",
+    foreign_key: :sender_id,
+    primary_key: :id,
+    dependent: :destroy
+  )
+
+  has_many(
+    :received_friend_requests,
+    class_name: "FriendRequest",
+    foreign_key: :recipient_id,
+    primary_key: :id,
+    dependent: :destroy
+  )
+
+  has_many(
     :authored_posts,
     class_name: "Post",
     foreign_key: :author_id,
-    primary_key: :id
+    primary_key: :id,
+    dependent: :destroy
   )
 
   has_many(
     :received_posts,
     class_name: "Post",
     foreign_key: :recipient_id,
-    primary_key: :id
+    primary_key: :id,
+    dependent: :destroy
   )
 
   has_many(
     :photos,
     class_name: "Photo",
     foreign_key: :user_id,
-    primary_key: :id
+    primary_key: :id,
+    dependent: :destroy
   )
 
   has_many(
     :likes,
     class_name: "Like",
     foreign_key: :user_id,
-    primary_key: :id
+    primary_key: :id,
+    dependent: :destroy
   )
 
   has_many(
@@ -63,6 +99,11 @@ class User < ActiveRecord::Base
     user = self.find_by_email(email)
 
     user && user.is_password?(password) ? user : nil
+  end
+
+  def is_friend?(user)
+    self.friends.where(id: user.id).any? ||
+    self.inverse_friends.where(id: user.id).any?
   end
 
   def status

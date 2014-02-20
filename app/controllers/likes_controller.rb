@@ -6,7 +6,7 @@ class LikesController < ApplicationController
     })
 
     flash[:notices] = ["liked"]
-    redirect_to(:back)
+    redirect_to :back
   end
 
   def destroy
@@ -14,6 +14,6 @@ class LikesController < ApplicationController
 
     @like.destroy
     flash[:notices] = ["unliked"]
-    redirect_to(:back)
+    redirect_to :back
   end
 end
