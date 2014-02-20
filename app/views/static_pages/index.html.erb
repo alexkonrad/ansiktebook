@@ -7,6 +7,8 @@
 } %>
 <h2>Feed</h2>
 <%= render partial: "shared/post", collection: @posts %>
+<h2>Friend Requests</h2>
+<%= render partial: "shared/friend_requests", collection: @users, as: :user %>
 <% else %>
 
 <% end %>

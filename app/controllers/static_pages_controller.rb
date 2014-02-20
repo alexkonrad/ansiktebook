@@ -9,6 +9,8 @@ class StaticPagesController < ApplicationController
         .status
 
       @posts = Post.all
+
+      @users = current_user.friend_requesters.all
     else
       @user = User.new
     end

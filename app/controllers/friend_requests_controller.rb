@@ -1,6 +1,8 @@
 class FriendRequestsController < ApplicationController
   def create
-    @request = FriendRequest.create(params[:friend_request])
+    current_user.sent_friend_requests.create({
+      recipient_id: params[:recipient_id]
+    })
 
     flash[:notices] = ["friend request pending"]
 
@@ -8,25 +10,26 @@ class FriendRequestsController < ApplicationController
   end
 
   def destroy
-    friending_id = params[:sender_id]
-
     @request = current_user
       .received_friend_requests
-      .where(sender_id: friending_id)
+      .where(sender_id: params[:user_id])
       .first
-
-    if params[:status] == "approve"
-      Friendship.create({
-        friended_id: current_user.id,
-        friending_id: friending_id
-      })
-    end
-
-    flash[:notices] = ["friend request approved"]
 
     @request.destroy
 
-    redirect_to user_url(friending_id)
+    if params[:status] == "approve"
+      current_user.friendships.create({
+        friend_id: params[:user_id]
+      })
+
+      flash[:notices] = ["friend request approved"]
+
+      redirect_to user_url(params[:user_id])
+    else
+      flash[:notices] = ["friend request denied"]
+
+      redirect_to :back
+    end
 
   end
 end

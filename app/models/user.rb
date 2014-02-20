@@ -51,6 +51,12 @@ class User < ActiveRecord::Base
   )
 
   has_many(
+  :friend_requesters,
+  through: :received_friend_requests,
+  source: :sender
+  )
+
+  has_many(
     :authored_posts,
     class_name: "Post",
     foreign_key: :author_id,
@@ -101,9 +107,49 @@ class User < ActiveRecord::Base
     user && user.is_password?(password) ? user : nil
   end
 
+  def sent_friend_request?(user)
+    !!find_friend_request_by_user_id(user.id)
+  end
+
   def is_friend?(user)
     self.friends.where(id: user.id).any? ||
     self.inverse_friends.where(id: user.id).any?
+  end
+
+  def find_friend_request_by_user_id(id)
+    recipient = self
+      .received_friend_requests
+      .where(sender_id: id)
+      .all
+      .first
+
+    return recipient if recipient
+
+    sender = self
+      .sent_friend_requests
+      .where(recipient_id: id)
+      .all
+      .first
+
+    return sender if sender
+  end
+
+  def find_friendship_by_user_id(id)
+    friend = self
+      .friendships
+      .where(friend_id: id)
+      .all
+      .first
+
+    return friend if friend
+
+    inverse_friend = self
+      .inverse_friendships
+      .where(user_id: id)
+      .all
+      .first
+
+    return inverse_friend if inverse_friend
   end
 
   def status
