@@ -21,4 +21,9 @@ class SessionsController < ApplicationController
 
     redirect_to static_pages_url
   end
+
+  def demo
+    sign_in(User.find_by_username("Alex Konrad"))
+    redirect_to static_pages_url
+  end
 end

@@ -23,4 +23,6 @@ Facebook::Application.routes.draw do
   resource :session, only: [:create, :destroy]
 
   root to: "static_pages#index"
+
+  get 'demo', to: "sessions#demo"
 end
