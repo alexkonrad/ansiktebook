@@ -30,4 +30,12 @@ module ApplicationHelper
      name=\"authenticity_token\"
      value=\"#{form_authenticity_token}\">".html_safe
   end
+
+  def notify!(user, new_resource)
+    Notification.create({
+      user_id: user.id,
+      notifiable_id: new_resource.id,
+      notifiable_type: new_resource.class.name
+    })
+  end
 end

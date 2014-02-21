@@ -16,4 +16,11 @@ class Like < ActiveRecord::Base
     foreign_key: :likeable_id,
     primary_key: :id
   )
+
+  has_many(
+    :notifications,
+    as: :notifiable,
+    foreign_key: :notifiable_id,
+    primary_key: :id
+  )
 end

@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
 
   has_many :comments
 
+  has_many :notifications
+
   has_many(
     :photo_taggings,
     class_name: "Tag",

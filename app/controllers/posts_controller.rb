@@ -21,6 +21,7 @@ class PostsController < ApplicationController
     @post.recipient_id = params[:user_id]
 
     if @post.save
+      notify!(@post.recipient, @post)
       flash[:notices] = ["created post"]
       redirect_to user_url(@post.recipient_id)
     else

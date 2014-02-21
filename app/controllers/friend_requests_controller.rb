@@ -18,15 +18,17 @@ class FriendRequestsController < ApplicationController
     @request.destroy
 
     if params[:status] == "approve"
-      current_user.friendships.create({
+      friendship = current_user.friendships.create({
         friend_id: params[:user_id]
       })
 
-      flash[:notices] = ["friend request approved"]
+      notify!(friendship.friend, friendship)
+
+      flash[:notices] = ["approved friend request"]
 
       redirect_to user_url(params[:user_id])
     else
-      flash[:notices] = ["friend request denied"]
+      flash[:notices] = ["denied friend request"]
 
       redirect_to :back
     end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140221142336) do
+ActiveRecord::Schema.define(:version => 20140221152825) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id",          :null => false
@@ -56,6 +56,17 @@ ActiveRecord::Schema.define(:version => 20140221142336) do
   add_index "likes", ["likeable_id"], :name => "index_likes_on_likeable_id"
   add_index "likes", ["user_id", "likeable_id", "likeable_type"], :name => "index_likes_on_user_id_and_likeable_id_and_likeable_type", :unique => true
   add_index "likes", ["user_id"], :name => "index_likes_on_user_id"
+
+  create_table "notifications", :force => true do |t|
+    t.integer  "user_id",         :null => false
+    t.integer  "notifiable_id",   :null => false
+    t.string   "notifiable_type", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "notifications", ["notifiable_id"], :name => "index_notifications_on_notifiable_id"
+  add_index "notifications", ["user_id"], :name => "index_notifications_on_user_id"
 
   create_table "photos", :force => true do |t|
     t.integer  "user_id",               :null => false

@@ -7,6 +7,7 @@ class TagsController < ApplicationController
     })
 
     if @tag.save
+      notify!(@tag.tagged, @tag)
 
       flash[:notices] = ["tagged photo"]
 

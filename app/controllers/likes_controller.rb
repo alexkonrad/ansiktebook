@@ -5,6 +5,9 @@ class LikesController < ApplicationController
       likeable_type: params[:likeable_type]
     })
 
+    user = (@like.likeable_type == "Post") ? @like.likeable.author : @like.likeable.user
+    notify!(user, @like)
+
     flash[:notices] = ["liked"]
     redirect_to :back
   end

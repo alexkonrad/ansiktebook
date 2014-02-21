@@ -18,6 +18,13 @@ class Post < ActiveRecord::Base
   )
 
   has_many(
+    :notifications,
+    as: :notifiable,
+    foreign_key: :notifiable_id,
+    primary_key: :id
+  )
+
+  has_many(
     :comments,
     as: :commentable,
     foreign_key: :commentable_id,

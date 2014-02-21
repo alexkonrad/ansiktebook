@@ -14,4 +14,11 @@ class Friendship < ActiveRecord::Base
     foreign_key: :friend_id,
     primary_key: :id
   )
+
+  has_many(
+    :notifications,
+    as: :notifiable,
+    foreign_key: :notifiable_id,
+    primary_key: :id
+  )
 end
