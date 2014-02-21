@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140220150223) do
+ActiveRecord::Schema.define(:version => 20140221142336) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id",          :null => false
+    t.integer  "commentable_id",   :null => false
+    t.string   "commentable_type", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "body",             :null => false
+  end
+
+  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "friend_requests", :force => true do |t|
     t.integer  "sender_id",    :null => false
@@ -81,11 +93,11 @@ ActiveRecord::Schema.define(:version => 20140220150223) do
   add_index "tags", ["tagger_id"], :name => "index_tags_on_tagger_id"
 
   create_table "users", :force => true do |t|
-    t.string   "username"
-    t.string   "email"
-    t.string   "password_digest"
-    t.string   "session_token"
-    t.date     "birthday"
+    t.string   "username",                     :null => false
+    t.string   "email",                        :null => false
+    t.string   "password_digest",              :null => false
+    t.string   "session_token",                :null => false
+    t.date     "birthday",                     :null => false
     t.text     "about"
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false

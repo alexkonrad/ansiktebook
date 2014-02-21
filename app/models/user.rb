@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
 
   validates_attachment_content_type :profile_picture, content_type: %w(image/jpeg image/jpg image/png)
 
+  has_many :comments
+
   has_many(
     :photo_taggings,
     class_name: "Tag",

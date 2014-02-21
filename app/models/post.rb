@@ -18,6 +18,14 @@ class Post < ActiveRecord::Base
   )
 
   has_many(
+    :comments,
+    as: :commentable,
+    foreign_key: :commentable_id,
+    primary_key: :id,
+    dependent: :destroy
+  )
+
+  has_many(
     :likes,
     as: :likeable,
     foreign_key: :likeable_id,

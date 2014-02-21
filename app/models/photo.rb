@@ -25,6 +25,14 @@ class Photo < ActiveRecord::Base
     dependent: :destroy
   )
 
+  has_many(
+    :comments,
+    as: :commentable,
+    foreign_key: :commentable_id,
+    primary_key: :id,
+    dependent: :destroy
+  )
+
   has_many :tags
   has_many :tagged_users, through: :tags, source: :tagged
 
