@@ -2,7 +2,7 @@
 <% if mode == "update"  %>
   <% action = post_url(post) %>
 <% elsif mode == "create" %>
-  <% action = user_posts_url(user) %>
+  <% action = user_posts_url(user, post) %>
 <% end %>
 
 <form action="<%= action %>" method="post">
@@ -13,16 +13,12 @@
 
   <%= auth_token %>
 
-  <div class="post-text">
     <label for="post_text"></label>
     <input type="textarea"
            name="post[text]"
            id="post_text">
-  </div>
-  <div class="post-submit">
   <input type="submit"
          value="<%= message %>">
-  </div>
 
 </form>
 <% if mode == "update"  %>

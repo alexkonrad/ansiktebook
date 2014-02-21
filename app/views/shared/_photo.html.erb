@@ -1,97 +1,75 @@
 <div class="photo-index">
-<p>
   <% if link %>
     <a href="<%= user_photo_url(photo.user_id, photo.id) %>">
       <img src="<%= photo.filename.url(:small) %>">
     </a>
   <% else %>
     <a href="<%= user_photos_url(photo.user_id) %>">Back to Photos</a>
-    <p><img src="<%= photo.filename.url(:large) %>"></p>
+    <p>
+      <img src="<%= photo.filename.url(:large) %>">
+    </p>
 
-  <% end %>
+    <p>
+      at <%= time_ago_in_words photo.created_at %> ago
+    </p>
+    <p>
+      <%= photo.likes.count %>
+      <%= photo.likes.count == 1 ? "like" : "likes" %>
+    </p>
 
-  <p>at <%= time_ago_in_words photo.created_at %> ago</p>
-  <p><%= photo.likes.count %>
-    <%= photo.likes.count == 1 ? "like" : "likes" %></p>
+    <% if photo.liked_by? current_user %>
+      <form action="<%= user_photo_likes_url(current_user.id, photo.id) %>"
+            method="post">
+        <input type="hidden" name="_method" value="delete">
+        <%= auth_token %>
+        <input type="hidden" name="likeable_id" value="<%= photo.id %>">
+        <input type="hidden" name="likeable_type" value="Photo">
+        <input type="submit" value="Unlike">
+      </form>
+    <% else %>
+      <form action="<%= user_photo_likes_url(current_user.id, photo.id) %>"
+            method="post">
+        <%= auth_token %>
+        <input type="hidden" name="likeable_id" value="<%= photo.id %>">
+        <input type="hidden" name="likeable_type" value="Photo">
+        <input type="submit" value="Like">
+      </form>
+    <% end %>
 
-  <% if photo.liked_by? current_user %>
+    <% photo.tags.each do |tag| %>
+      <% if tag.tagged == current_user ||
+            tag.tagger == current_user ||
+            photo.user == current_user %>
+      <a href="<%= user_url(tag.tagged) %>">
+        <%= tag.tagged.username %>
+      </a>
+        <%= button_to "Untag #{tag.tagged.username}",
+                      user_photo_tags_url(tag.tagged_id, photo.id),
+                      method: :delete %>
+      <% else %>
+      <a href="<%= user_url(tag.tagged) %>">
+        <%= tag.tagged.username %>
+      </a>
+      <% end %>
+    <% end %>
 
-    <form action="<%= user_photo_likes_url(current_user.id, photo.id) %>"
-          method="post">
-
-      <input type="hidden" name="_method" value="delete">
-
+    <form action="<%= user_photo_tags_url(photo.user_id, photo.id) %>" method="post">
       <%= auth_token %>
-
-      <input type="hidden" name="likeable_id" value="<%= photo.id %>">
-
-      <input type="hidden" name="likeable_type" value="Photo">
-
-      <input type="submit" value="Unlike">
-
-    </form>
-
-  <% else %>
-
-    <form action="<%= user_photo_likes_url(current_user.id, photo.id) %>"
-          method="post">
-
-      <%= auth_token %>
-
-      <input type="hidden" name="likeable_id" value="<%= photo.id %>">
-
-      <input type="hidden" name="likeable_type" value="Photo">
-
-      <input type="submit" value="Like">
-
-    </form>
-
-  <% end %>
-
-  <% photo.tags.each do |tag| %>
-
-  <% if tag.tagged == current_user ||
-        tag.tagger == current_user ||
-        photo.user == current_user %>
-
-    <a href="<%= user_url(tag.tagged) %>"><%= tag.tagged.username %></a>
-
-    <%= button_to "Untag #{tag.tagged.username}",
-                  user_photo_tags_url(tag.tagged_id, photo.id),
-                  method: :delete %>
-
-  <% else %>
-
-    <a href="<%= user_url(tag.tagged) %>"><%= tag.tagged.username %></a>
-
-  <% end %>
-
-  <% end %>
-
-  <form action="<%= user_photo_tags_url(photo.user_id, photo.id) %>" method="post">
-
-    <%= auth_token %>
-
       <select name="tagged_user_id">
         <option value="<%= current_user.id %>">
-          <%= current_user.username %>
+        <%= current_user.username %>
         </option>
         <% current_user.all_friends.each do |friend| %>
-
           <option value="<%= friend.id %>">
-
             <%= friend.username %>
-
           </option>
-
         <% end %>
       </select>
-
       <input type="submit" value="Tag a Friend">
-  </form>
+    </form>
 
-  <% if photo.user == current_user %>
-    <%= button_to "Delete", photo_url(photo), method: :delete %>
+    <% if photo.user == current_user %>
+      <%= button_to "Delete", photo_url(photo), method: :delete %>
+    <% end %>
   <% end %>
-</p>
 </div>

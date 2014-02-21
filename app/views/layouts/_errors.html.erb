@@ -1,16 +1,3 @@
-<style>
-.flashes {
-  margin: 20px 0;
-}
-.errors {
-  color: red;
-}
-
-.notices {
-  color: green;
-}
-
-</style>
 <div class="flashes">
   <% if flash[:errors] %>
     <% flash[:errors].each do |error| %>

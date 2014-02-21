@@ -1,23 +1,18 @@
+<div class="user-profile">
 <%= render partial: "shared/profile", locals: {
   user: @user,
   status: @status
 } %>
 
-<% if @user == current_user %>
+  <div class="posts">
+  <%= render partial: "shared/profile_nav" %>
   <%= render partial: "shared/post_form", locals: {
     post: @post,
     user: @user,
     mode: "create",
     message: "Post"
   } %>
-<% else %>
-  <h2><%= @user.username %>'s Wall</h2>
-  <h3>Write on <%= @user.username %>'s Wall</h3>
-  <%= render partial: "shared/post_form", locals: {
-    post: @post,
-    user: @user,
-    mode: "create",
-    message: "Post"
-  } %>
-<% end %>
-<%= render partial: "shared/post", collection: @user.received_posts %>
+
+  <%= render partial: "shared/post", collection: @user.received_posts %>
+  </div>
+</div>

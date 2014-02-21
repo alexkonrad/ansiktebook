@@ -1,64 +1,61 @@
 <div class="post">
-<p>
-  <img src="<%= post.author.profile_picture.url(:small) %>"
-       height=75
-       width=75>
+  <div class="group">
+    <div class="post-image">
+      <img src="<%= post.author.profile_picture.url(:small) %>"
+           height=75
+           width=75>
+    </div>
+    <div class="post-content">
+      <a href="<%= user_url(post.author) %>">
+        <strong><%= post.author.username %></strong>
+      </a>
+    <% unless post.author == post.recipient %>
+      <strong>></strong>
+      <a href="<%= user_url(post.recipient) %>">
+        <strong><%= post.recipient.username %></strong>
+      </a>
+    <% end %>
+      <p class="post-text"><%= post.text %></p>
+    </div>
+  </div>
 
-  <a href="<%= user_url(post.author) %>">
-    <strong><%= post.author.username %></strong>
-  </a>
-  <% unless post.author == post.recipient %>
-    <strong>></strong>
-    <a href="<%= user_url(post.recipient) %>">
-      <strong><%= post.recipient.username %></strong>
-    </a>
-  <% end %>
-</p>
-<p>
-  <em><%= post.text %></em>
+  <div class="post-footer">
   <% if post.liked_by? current_user %>
-
-    <form action="<%= user_post_likes_url(current_user.id, post.id) %>"
+    <form class="post-footer-item"
+          action="<%= user_post_likes_url(current_user.id, post.id) %>"
           method="post">
-
       <input type="hidden" name="_method" value="delete">
-
       <%= auth_token %>
-
       <input type="hidden" name="likeable_id" value="<%= post.id %>">
-
       <input type="hidden" name="likeable_type" value="Post">
-
       <input type="submit" value="Unlike">
-
     </form>
-
   <% else %>
-
-    <form action="<%= user_post_likes_url(current_user.id, post.id) %>"
+    <form class="post-footer-item"
+          action="<%= user_post_likes_url(current_user.id, post.id) %>"
           method="post">
-
       <%= auth_token %>
-
       <input type="hidden" name="likeable_id" value="<%= post.id %>">
-
       <input type="hidden" name="likeable_type" value="Post">
-
       <input type="submit" value="Like">
-
     </form>
-
   <% end %>
-  <p>posted <%= time_ago_in_words post.created_at %> ago</p>
 
-  <p><%= post.likes.count %>
-    <%= post.likes.count == 1 ? "like" : "likes" %></p>
+    <div class="post-footer-item">
+      posted <%= time_ago_in_words post.created_at %> ago
+    </div>
 
-  <% if post.author == current_user %>
-    <%= link_to "Edit", edit_post_url(post) %>
-    <%= button_to "Delete", post_url(post), method: :delete %>
-  <% elsif post.recipient == current_user %>
-    <%= button_to "Delete", post_url(post), method: :delete %>
-  <% end %>
-</p>
+    <div class="post-footer-item">
+      <%= post.likes.count %>
+      <%= post.likes.count == 1 ? "like" : "likes" %>
+    </div>
+    <div class="post-footer-item edit">
+    <% if post.author == current_user %>
+      <%= link_to "Edit", edit_post_url(post) %>
+      <%= button_to "Delete", post_url(post), method: :delete %>
+    <% elsif post.recipient == current_user %>
+      <%= button_to "Delete", post_url(post), method: :delete %>
+    <% end %>
+    </div>
+  </div>
 </div>
