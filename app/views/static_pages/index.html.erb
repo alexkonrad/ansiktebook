@@ -1,8 +1,7 @@
-<div class="index">
 <% if logged_in? %>
   <%= render partial: "shared/profile", locals: {
       user: @user,
-      status: @status,
+      status: @status
     } %>
 
   <div class="posts">
@@ -16,8 +15,7 @@
     <%= render partial: "shared/post", collection: @posts %>
   </div>
 
-  <%= render partial: "shared/friend_requests", collection: @users, as: :user %>
-  <% else %>
+  <!-- <%= render partial: "shared/friend_requests", collection: @users, as: :user %> -->
+<% else %>
 
-  <% end %>
-</div>
+<% end %>

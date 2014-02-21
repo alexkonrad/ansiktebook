@@ -38,4 +38,28 @@ module ApplicationHelper
       notifiable_type: new_resource.class.name
     })
   end
+
+  def parse_notification(notification)
+    return "" unless notification.notifiable
+    case notification.notifiable_type
+    when "Post"
+      "#{notification.notifiable.author.username} wrote on your wall".html_safe
+    when "Comment"
+      if notification.notifiable.commentable_type == "Post"
+        "#{notification.notifiable.author.username} commented on your post".html_safe
+      else
+        "#{notification.notifiable.author.username} commented on your photo".html_safe
+      end
+    when "Tag"
+      "#{notification.notifiable.tagger.username} tagged you in a photo".html_safe
+    when "Like"
+      if notification.notifiable.likeable_type == "Post"
+        "#{notification.notifiable.user.username} liked your post".html_safe
+      else
+        "#{notification.notifiable.user.username} liked your photo".html_safe
+      end
+    when "Friendship"
+      "#{notification.notifiable.user.username} accepted your friend request".html_safe
+    end
+  end
 end

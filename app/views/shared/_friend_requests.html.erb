@@ -1,40 +1,38 @@
-<p>
-  <a href="<%= user_url(user) %>">
-    <%= user.username %>
-  </a>
-  <img src="<%= user.profile_picture.url(:small) %>"
-       height=75
-       width=75>
+<a href="<%= user_url(user) %>">
+  <%= user.username %>
+</a>
+<img src="<%= user.profile_picture.url(:small) %>"
+     height=75
+     width=75>
 
-  <form action="<%= user_friend_request_url(user) %>"
-        method="post">
+<form action="<%= user_friend_request_url(user) %>"
+      method="post">
 
-      <input type="hidden"
-             name="_method"
-             value="delete">
+    <input type="hidden"
+           name="_method"
+           value="delete">
 
-      <%= auth_token %>
+    <%= auth_token %>
 
-      <input type="hidden"
-             name="status"
-             value="approve">
+    <input type="hidden"
+           name="status"
+           value="approve">
 
-      <input type="submit" value="Approve">
-  </form>
+    <input type="submit" value="Approve">
+</form>
 
-  <form action="<%= user_friend_request_url(user) %>"
-        method="post">
+<form action="<%= user_friend_request_url(user) %>"
+      method="post">
 
-      <input type="hidden"
-             name="_method"
-             value="delete">
+    <input type="hidden"
+           name="_method"
+           value="delete">
 
-      <%= auth_token %>
+    <%= auth_token %>
 
-      <input type="hidden"
-             name="status"
-             value="deny">
+    <input type="hidden"
+           name="status"
+           value="deny">
 
-      <input type="submit" value="Deny">
-  </form>
-</p>
+    <input type="submit" value="Deny">
+</form>

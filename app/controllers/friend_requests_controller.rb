@@ -9,6 +9,10 @@ class FriendRequestsController < ApplicationController
     redirect_to :back
   end
 
+  def index
+    @users = current_user.friend_requesters.all
+  end
+
   def destroy
     @request = current_user
       .received_friend_requests

@@ -46,12 +46,28 @@
       background: lightgray;
     }
 
+    .wrapper {
+      width: 1000px;
+      margin: auto;
+      background: white;
+    }
+
+    .navbar .logged-in {
+      margin: auto;
+      width: 1000px;
+    }
+    .navbar .logged-out {
+      margin: auto;
+      width: 1000px;
+    }
+
     a {
       text-decoration: none;
       color: #2D4689;
       font-weight: bold;
       font-size: 12px;
     }
+
     a:hover {
       text-decoration: underline;
     }
@@ -74,19 +90,8 @@
       color: white;
     }
 
-
-    .navbar .logged-in {
-      margin: auto;
-      width: 900px;
-    }
-
-    .top-right {
-      margin-left: 650px;
-    }
-
-    .navbar .logged-out {
-      margin: auto;
-      width: 900px;
+    .navbar .top-right {
+      margin-left: 400px;
     }
 
     .navbar a {
@@ -98,31 +103,56 @@
       color: white;
     }
 
-    .flashes {
-      width: 900px;
-      margin: auto;
-      text-align: center;
+    .navbar .top-right a {
+      padding-top: 10px;
+      font-size: 15px;
     }
-    .errors {
+
+    .flashes {
+      text-align: center;
+      visibility: hidden;
+    }
+
+    .flashes .errors {
       color: red;
     }
 
-    .notices {
+    .flashes .notices {
       color: green;
     }
 
-    .index {
-      margin : auto;
-      width: 900px;
+    .notifications {
+      position: absolute;
+      left: 600px;
+      background: white;
+      border: 1px solid lightgray;
+      visibility: hidden;
+      padding: 10px
+    }
+/*    .notifications:hover {
+      visibility: hidden;
+    }*/
+    .nav-bar .top-right .notif-button:hover /*.notifications*/ {
+      color: red;
+      visibility: visible;
     }
 
-    .profile-nav {
-      padding: 10px 10px 0 10px;
-      background: transparent;
+    .friend-requests {
+      position: absolute;
+      left: 445px;
+      background: white;
+      border: 1px solid lightgray;
+      padding: 10px
+    }
+
+    .friend-requests:hover {
+
     }
 
     .user-photo-nav-bar .profile-nav {
       float: left;
+      padding: 10px 10px 0 10px;
+      background: transparent;
     }
 
     .profile-nav-item {
@@ -152,7 +182,7 @@
       padding: 10px;
     }
 
-    .user-profile {
+/*    .user-profile {
       width: 1000px;
       margin: auto;
     }
@@ -160,7 +190,7 @@
     .user-index-page {
       width: 1000px;
       margin: auto;
-    }
+    }*/
 
     .user-photo-index-page {
       float: left;
@@ -188,7 +218,6 @@
       display: block;
       content: "";
     }
-
 
     .about {
       border: 1px solid lightgray;
@@ -264,7 +293,9 @@
     <%= render "layouts/errors" %>
   </div>
 
-  <%= yield %>
+  <div class="wrapper">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
