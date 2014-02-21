@@ -5,7 +5,9 @@
 } %>
 
   <div class="posts">
-  <%= render partial: "shared/profile_nav" %>
+  <%= render partial: "shared/profile_nav", locals: {
+    user: @user
+  } %>
   <%= render partial: "shared/post_form", locals: {
     post: @post,
     user: @user,

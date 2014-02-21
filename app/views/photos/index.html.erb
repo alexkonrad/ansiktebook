@@ -4,7 +4,9 @@
     status: @status
   } %>
   <div class="user-photo-nav-bar">
-  <%= render partial: "shared/profile_nav" %>
+  <%= render partial: "shared/profile_nav", locals: {
+    user: @user
+  } %>
   </div>
   <div class="user-photo-index-page">
     <%= render partial: "shared/photo", collection: @photos, locals: {
