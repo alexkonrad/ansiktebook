@@ -1,65 +1,19 @@
 <div class="profile">
-<h3><strong><%= user.username %>  </strong><em><%= status.text if status %></em></h3>
-
-<% if user != current_user %>
-
-  <% if current_user.is_friend?(user) %>
-    <form action="<%= user_friendship_url(user) %>" method="post">
-
-      <input type="hidden"
-             name="_method"
-             value="delete">
-
-      <%= auth_token %>
-
-      <input type="hidden"
-             name="friend_id"
-             value="<%= user.id %>">
-
-      <input type="submit"
-             value="Unfriend">
-    </form>
-  <% elsif !current_user.sent_friend_request?(user) %>
-    <form action="<%= user_friend_request_url(user) %>" method="post">
-
-      <%= auth_token %>
-
-      <input type="hidden"
-             name="recipient_id"
-             value="<%= user.id %>">
-
-      <input type="submit"
-             value="Friend Request">
-    </form>
-
-  <% else %>
-  Friend request pending...
-
-  <% end %>
-
-<% else %>
-
-<% end %>
-
-<a href="<%= user_photos_url(user) %>">Photos</a>
-
-<p>
   <img src="<%= user.profile_picture.url(:large) %>"
        height=300
        width=300>
-</p>
 
-<table>
-  <tr>
-    <td>Email</td>
-    <td><%= user.email %></td>
-  </tr>
-  <tr>
-    <td>Birthday</td>
-    <td><%= user.birthday %></td>
-  </tr>
-</table>
-<div class="about">
-  <%= user.about %>
-</div>
+  <table>
+    <tr>
+      <td>Email</td>
+      <td><%= user.email %></td>
+    </tr>
+    <tr>
+      <td>Birthday</td>
+      <td><%= user.birthday %></td>
+    </tr>
+  </table>
+  <div class="about">
+    <%= user.about %>
+  </div>
 </div>

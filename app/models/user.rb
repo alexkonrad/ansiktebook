@@ -141,6 +141,12 @@ class User < ActiveRecord::Base
     self.inverse_friends.where(id: user.id).any?
   end
 
+  def mutual_friends_with(user)
+    self.all_friends.select do |friend|
+      friend.is_friend?(user)
+    end
+  end
+
   def find_friend_request_by_user_id(id)
     recipient = self
       .received_friend_requests

@@ -1,0 +1,46 @@
+.status {
+  strong {
+    color: #212121;
+    font-size: 25px;
+  }
+}
+
+.profile {
+  float: left;
+  margin-top: 5px;
+  background: transparent;
+  width: 300px;
+  padding: 10px;
+}
+
+.about {
+  border: 1px solid lightgray;
+  margin: 10px;
+  padding: 10px;
+  height: 100px;
+  background: white;
+}
+.profile-nav-item {
+  float: left;
+  border: 1px solid gray;
+  border-bottom: 0;
+  border-radius: 3px;
+  margin: 0 1px 0 0;
+  padding: 8px 25px;
+  background: #FFFFFF;
+
+  &:hover {
+    background: #EEEEEE;
+
+  }
+
+  a:hover {
+    &:hover {
+      text-decoration: none;
+    };
+  };
+
+  form: {
+    float: right;
+  };
+}

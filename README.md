@@ -118,31 +118,29 @@
 TODO: write API Routes
 
 ## Itinerary
-###Rails Phase
-####w1d1
-  * Finish paper prototyping
-  * Determine routes, models, associations, and controller actions
-  * Finish and write tests for user authentication
-  * Finish and write tests for posts (including photo and text posts)
-
-####w1d2
-  * Finish and write tests for friends
-  * Finish and write tests for likes
-  * Finish and write tests for tags
-
-####w1d3
-  * Finish and write tests for notifications
-  * Write the JSON API
-  * Refine database queries, refactor views into partials
-
-
-####w1d1-w1d3 TODO
-  * Make a mailer for password confirmation, forgot password
-  * Add male/female option to sign up page
-  * Write model and capybara specs for auth
-  * Setup pingdom or newrelic for heroku pinging
-
-####NOTES
-* After create notification constructor helper method
-* posts/1/like or pictures/1/like all routed to the same likes controller also tags
-* notification needs no controller
+#### Formatting
+##### Splash
+  * splash login screen put labels above inputs, arrange correctly
+  * reformat signup page, float right on page
+  * find something to put n left side
+  * change button CSS style for post show options
+##### Navbar
+  * add Friends button
+  * add icons to home, profile, settings, button etc
+  * add logout button
+  * make it thinner
+  * make a photo logo to replace the text button
+  * add a search bar with magnifying glass
+##### Profile
+  * allow editing profile attributes on the page
+  * remove border, background transparent
+  * make about box editable on click
+##### Friends
+  * add partial to show small icons of top six friends with names
+  * light blue banner with darker top-border
+  * link to full friends page (or specific friend profile)
+##### Posts
+  * make inactive tabs light blue, add info tab
+  * add yellow (notepad style) note box for flashes
+  * remove border from post box, use borders from outside elements
+  * group posts by day (using light gray bar saying today/yesterday/may)

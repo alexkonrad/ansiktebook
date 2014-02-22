@@ -1,3 +1,51 @@
+<div class="status">
+  <strong>
+    <%= user.username %>
+  </strong>
+    <%= user.status.text if user.status %>
+
+<% if user != current_user %>
+
+  <% if current_user.is_friend?(user) %>
+    <form action="<%= user_friendship_url(user) %>" method="post">
+
+      <input type="hidden"
+             name="_method"
+             value="delete">
+
+      <%= auth_token %>
+
+      <input type="hidden"
+             name="friend_id"
+             value="<%= user.id %>">
+
+      <input type="submit"
+             value="Unfriend">
+    </form>
+  <% elsif !current_user.sent_friend_request?(user) %>
+    <form action="<%= user_friend_request_url(user) %>" method="post">
+
+      <%= auth_token %>
+
+      <input type="hidden"
+             name="recipient_id"
+             value="<%= user.id %>">
+
+      <input type="submit"
+             value="Friend Request">
+    </form>
+
+  <% else %>
+  Friend request pending...
+
+  <% end %>
+
+<% else %>
+
+<% end %>
+
+</div>
+
 <div class="profile-nav">
   <div class="profile-nav-item">
     <a href="<%= user_url(user) %>">Profile</a>
