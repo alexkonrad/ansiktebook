@@ -51,10 +51,10 @@
     </div>
 
 
-      <div class="group">
+      <!-- <div class="group"> -->
       <% post.comments.each do |comment| %>
       <!-- <div class="post-footer-item"> -->
-        <!-- <div class="group"> -->
+        <div class="group">
           <div class="comment-image">
             <img src="<%= comment.author.profile_picture.url(:small) %>"
                  height=75
@@ -65,7 +65,7 @@
               <strong><%= comment.author.username %></strong>
             </a>
             <div class="comment-text"><%= comment.body %></div>
-          <!-- </div> -->
+          </div>
         <!-- </div> -->
         <div class="post-footer-item comments delete-comment">
         <% if comment.author == current_user || post.recipient == current_user %>
@@ -75,7 +75,7 @@
       </div>
 
       <% end %>
-    </div>
+    <!-- </div> -->
 
     <div class="post-footer-item comment">
       <form action="<%= user_post_comments_url(current_user.id, post.id) %>" method="post">

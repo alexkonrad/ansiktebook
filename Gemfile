@@ -41,6 +41,7 @@ gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'figaro'
+gem 'jquery-ui-rails'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
