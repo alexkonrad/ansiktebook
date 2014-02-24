@@ -39,7 +39,7 @@ class PostsController < ApplicationController
 
     if @post.update_attributes(params[:post])
       flash[:notices] = ["created post"]
-      redirect_to post_url(@post)
+      redirect_to user_post_url(@post.recipient_id, @post)
     else
       flash.now[:errors] = @post.errors.full_messages
       render :edit

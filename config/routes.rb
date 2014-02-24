@@ -2,7 +2,7 @@ Facebook::Application.routes.draw do
   resources :static_pages, only: [:index]
   resources :users do
     resources :notifications, only: [:index]
-    resources :posts, except: [:edit, :update, :show, :destroy]
+    resources :posts, except: [:show]
     resources :posts, only: [:show] do
       resources :comments, only: [:index, :create]
       resource :likes, only: [:create, :destroy]
@@ -17,7 +17,6 @@ Facebook::Application.routes.draw do
     resources :friend_requests, only: [:index]
     resource :friendship, only: [:destroy]
   end
-  resources :posts, only: [:edit, :update, :destroy]
   resources :photos, only: [:destroy]
   resources :comments, only: [:destroy]
   resource :session, only: [:create, :destroy]

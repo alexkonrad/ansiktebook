@@ -43,6 +43,7 @@ gem 'aws-sdk'
 gem 'figaro'
 gem 'jquery-ui-rails'
 gem 'backbone-on-rails'
+gem 'jbuilder'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
