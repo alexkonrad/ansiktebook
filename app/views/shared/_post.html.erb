@@ -20,26 +20,14 @@
   </div>
 
   <div class="post-footer">
-  <% if post.liked_by? current_user %>
-    <form class="post-footer-item"
-          action="<%= user_post_likes_url(current_user.id, post.id) %>"
-          method="post">
-      <input type="hidden" name="_method" value="delete">
-      <%= auth_token %>
-      <input type="hidden" name="likeable_id" value="<%= post.id %>">
-      <input type="hidden" name="likeable_type" value="Post">
-      <input type="submit" value="Unlike">
-    </form>
-  <% else %>
-    <form class="post-footer-item"
-          action="<%= user_post_likes_url(current_user.id, post.id) %>"
-          method="post">
-      <%= auth_token %>
-      <input type="hidden" name="likeable_id" value="<%= post.id %>">
-      <input type="hidden" name="likeable_type" value="Post">
-      <input type="submit" value="Like">
-    </form>
-  <% end %>
+    <div class="likes <%= "can-like" unless post.liked_by?(current_user) %>">
+      <div class="unlike ">
+        <%= unlike(post) %>
+      </div>
+      <div class="like">
+        <%= like(post) %>
+      </div>
+    </div>
 
     <div class="post-footer-item">
       posted <%= time_ago_in_words post.created_at %> ago

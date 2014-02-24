@@ -21,6 +21,12 @@ Facebook::Application.routes.draw do
   resources :comments, only: [:destroy]
   resource :session, only: [:create, :destroy]
 
+  namespace :api do
+    resources :users do
+      resources :posts
+    end
+  end
+
   root to: "static_pages#index"
 
   get 'demo', to: "sessions#demo"

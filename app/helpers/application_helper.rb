@@ -62,4 +62,35 @@ module ApplicationHelper
       "#{notification.notifiable.user.username} accepted your friend request".html_safe
     end
   end
+
+  def unlike(post)
+    "<form class=\"post-footer-item\"
+          action=\"#{user_post_likes_url(current_user.id, post.id)}\"
+          data-remote=\"true\"
+          method=\"post\">
+      <input type=\"hidden\" name=\"_method\" value=\"delete\">
+      <input
+           type=\"hidden\"
+           name=\"authenticity_token\"
+           value=\"#{form_authenticity_token}\">
+      <input type=\"hidden\" name=\"likeable_id\" value=\"#{post.id}\">
+      <input type=\"hidden\" name=\"likeable_type\" value=\"Post\">
+      <input type=\"submit\" value=\"Unlike\">
+    </form>".html_safe
+  end
+
+  def like(post)
+    "<form class=\"post-footer-item\"
+           action=\"#{user_post_likes_url(current_user.id, post.id)}\"
+           data-remote=\"true\"
+           method=\"post\">
+      <input
+           type=\"hidden\"
+           name=\"authenticity_token\"
+           value=\"#{form_authenticity_token}\">
+      <input type=\"hidden\" name=\"likeable_id\" value=\"#{post.id}\">
+      <input type=\"hidden\" name=\"likeable_type\" value=\"Post\">
+      <input type=\"submit\" value=\"Like\">
+    </form>".html_safe
+  end
 end

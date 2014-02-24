@@ -69,3 +69,17 @@
 		float: right;
 	}
 }
+
+.like {
+  display: none;
+}
+.unlike {
+  display: block;
+}
+
+.can-like .like {
+  display: block;
+}
+.can-like .unlike {
+  display: none;
+}
