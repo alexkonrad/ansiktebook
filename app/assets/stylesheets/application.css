@@ -15,10 +15,21 @@
 $fb_light_blue: #ECEFF4;
 $fb_gray: #6D6D6D;
 
+html, body, h1, h2, h3, p, strong, label, div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
 
 input[type="text"],
 input[type="password"],
 input[type="email"],
+input[type="date"],
+input[type="textarea"],
+input[type="file"]
 input[type="submit"] {
   -webkit-appearance: none;
   display: inline-block;
@@ -34,12 +45,6 @@ input[type="submit"] {
   color: inherit;
 }
 
-div {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
 
 .group {
   clear: both;
@@ -53,14 +58,22 @@ body {
   font-weight: normal;
   font-size: 12px;
   background: #ECEFF4;
+  margin: 0;
+}
+
+img {
+	display: block;
+}
+
+.navbar-wrapper {
+  background: #2D4689;
 }
 
 .wrapper {
   width: 1000px;
   margin: auto;
+  margin-top: 10px;
 }
-
-
 
 a {
   text-decoration: none;
@@ -73,28 +86,30 @@ a:hover {
   text-decoration: underline;
 }
 
+label {
+	margin: 10px;
+}
+
 input[type="text"],
 input[type="password"],
-input[type="email"] {
+input[type="email"],
+input[type="file"],
+input[type="date"],
+input[type="textarea"] {
   background: white;
   border: 1px solid lightgray;
   padding: 3px;
   margin: 10px;
 }
 
+input[type="date"] {
+	border: 0;
+}
+
 .user-photo-nav-bar .profile-nav {
   float: left;
   padding: 10px 10px 0 10px;
   background: transparent;
-}
-
-
-
-
-.posts {
-  float: left;
-  margin-left: 10px;
-  margin-top: 10px;
 }
 
 

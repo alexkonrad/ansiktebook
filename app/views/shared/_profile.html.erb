@@ -1,19 +1,17 @@
-<div class="profile">
-  <img src="<%= user.profile_picture.url(:large) %>"
-       height=300
-       width=300>
+<img src="<%= user.profile_picture.url(:large) %>"
+   height=300
+   width=300>
 
-  <table>
-    <tr>
-      <td>Email</td>
-      <td><%= user.email %></td>
-    </tr>
-    <tr>
-      <td>Birthday</td>
-      <td><%= user.birthday %></td>
-    </tr>
-  </table>
-  <div class="about">
-    <%= user.about %>
-  </div>
+<table>
+<tr>
+  <td>Email</td>
+  <td><%= user.email %></td>
+</tr>
+<tr>
+  <td>Birthday</td>
+  <td><%= user.birthday %></td>
+</tr>
+</table>
+<div class="about">
+<%= user.about %>
 </div>

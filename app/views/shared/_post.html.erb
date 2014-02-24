@@ -53,7 +53,7 @@
 
       <div class="group">
       <% post.comments.each do |comment| %>
-      <div class="post-footer-item comment-item">
+      <!-- <div class="post-footer-item"> -->
         <!-- <div class="group"> -->
           <div class="comment-image">
             <img src="<%= comment.author.profile_picture.url(:small) %>"
@@ -65,7 +65,7 @@
               <strong><%= comment.author.username %></strong>
             </a>
             <div class="comment-text"><%= comment.body %></div>
-          </div>
+          <!-- </div> -->
         <!-- </div> -->
         <div class="post-footer-item comments delete-comment">
         <% if comment.author == current_user || post.recipient == current_user %>
@@ -82,7 +82,6 @@
         <%= auth_token %>
         <input type="hidden" name="comment[commentable_id]" value="<%= post.id %>">
         <input type="hidden" name="comment[commentable_type]" value="Post">
-        <label for="post_comment">Add Comment</label>
         <input type="textarea" name="comment[body]" id="post_comment">
         <input type="submit" value="Comment">
       </form>

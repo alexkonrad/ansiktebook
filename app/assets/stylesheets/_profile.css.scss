@@ -7,10 +7,13 @@
 
 .profile {
   float: left;
-  margin-top: 5px;
   background: transparent;
   width: 300px;
-  padding: 10px;
+//  padding: 10px;
+}
+
+.user-profile {
+	background: red;
 }
 
 .about {
@@ -20,6 +23,7 @@
   height: 100px;
   background: white;
 }
+
 .profile-nav-item {
   float: left;
   border: 1px solid gray;

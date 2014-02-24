@@ -1,20 +1,20 @@
-<div class="user-profile">
-<%= render partial: "shared/profile", locals: {
-  user: @user,
-  status: @status
-} %>
+<div class="profile">
+	<%= render partial: "shared/profile", locals: {
+	  user: @user,
+	  status: @status
+	} %>
+</div>
 
-  <div class="posts">
-  <%= render partial: "shared/profile_nav", locals: {
-    user: @user
-  } %>
-  <%= render partial: "shared/post_form", locals: {
-    post: @post,
-    user: @user,
-    mode: "create",
-    message: "Post"
-  } %>
+<div class="posts">
+	<%= render partial: "shared/profile_nav", locals: {
+	user: @user
+	} %>
+	<%= render partial: "shared/post_form", locals: {
+	post: @post,
+	user: @user,
+	mode: "create",
+	message: "Post"
+	} %>
 
-  <%= render partial: "shared/post", collection: @user.received_posts %>
-  </div>
+	<%= render partial: "shared/post", collection: @user.received_posts %>
 </div>

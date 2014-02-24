@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
     large: "600x600#",
     small: "150x150#"
   }
+  # => TODO: take default picture from asset pipeline or public folder
+  #, default_url: ActionController::Base.helpers.asset_path("public/default-picture.jpg")
 
   validates_attachment_content_type :profile_picture, content_type: %w(image/jpeg image/jpg image/png)
 

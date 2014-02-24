@@ -1,28 +1,32 @@
 .navbar {
-  background: #2D4689;
-  padding: 10px 10px;
   margin: auto;
   width: 1000px;
 
   a {
+	display: block;
     float: left;
-    padding: 0px 20px;
+    padding: 10px 20px;
     text-decoration: none;
     font-size: 25px;
     font-weight: bold;
     color: white;
   }
 
+  .logged-in {
+	height: 50px;
+  }
   .top-right {
-    margin-left: 400px;
+	float: right;
+	height: 50px;
+	.top-right-item {
+	  float: left;
+	}
     a {
-      padding-top: 10px;
+      padding: 16px 20px 16px 20px;
       font-size: 15px;
     }
-
-    .notif-button:hover {
-      color: red;
-      visibility: visible;
-    }
+	input[type="submit"] {
+	  margin-top: 12px;
+	}
   }
 }

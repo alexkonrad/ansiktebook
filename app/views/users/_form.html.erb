@@ -9,25 +9,25 @@
 
   <%= auth_token %>
 
-  <label for="user_username"></label>
+  <!-- <label for="user_username"></label> -->
   <input type="text"
          name="user[username]"
          value="<%= user.username || "Full Name"%>"
          id="user_username"><br>
 
-  <label for="user_email"></label>
+  <!-- <label for="user_email"></label> -->
   <input type="email"
          name="user[email]"
          value="<%= user.email || "Email" %>"
          id="user_email"><br>
 
-  <label for="user_birthday"></label>
+  <!-- <label for="user_birthday"></label> -->
   <input type="date"
          name="user[birthday]"
          value="<%= user.birthday || "Birthday" %>"
          id="user_birthday"><br><br>
 
-  <label for="user_about"></label>
+  <!-- <label for="user_about"></label> -->
   <input type="textarea"
          name="user[about]"
          value="<%= user.about || "About Me" %>"

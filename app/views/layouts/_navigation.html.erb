@@ -3,10 +3,18 @@
     <a href="<%= static_pages_url %>">Facebook</a>
     <a href="<%= users_url %>">Users</a>
     <div class="top-right">
-      <a href="<%= user_friend_requests_url(current_user) %>">Friend Requests</a>
-      <a href="<%= user_notifications_url(current_user) %>">Notifications</a>
-      <a href="<%= edit_user_url(current_user) %>">Settings</a>
-      <%= button_to "Sign Out", session_url, method: :delete %>
+	  <div class="top-right-item">
+      	<a href="<%= user_friend_requests_url(current_user) %>">Requests</a>
+  	  </div>
+	  <div class="top-right-item">
+      	<a href="<%= user_notifications_url(current_user) %>">Notifications</a>
+	  </div>
+	  <div class="top-right-item">
+        <a href="<%= edit_user_url(current_user) %>">Settings</a>
+	  </div>
+	  <div class="top-right-item">
+      	<%= button_to "Sign Out", session_url, method: :delete %>
+	  </div>
     </div>
   </div>
 <% else %>

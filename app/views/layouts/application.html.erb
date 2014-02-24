@@ -11,15 +11,16 @@
   </style>
 </head>
 <body>
-
-  <div class="navbar">
-    <%= render "layouts/navigation", object: @user %>
+  <div class="navbar-wrapper">
+  	<div class="navbar">
+  	  <%= render "layouts/navigation", object: @user %>
+  	</div>
   </div>
   <div class="errors">
     <%= render "layouts/errors" %>
   </div>
 
-  <div class="wrapper">
+  <div class="wrapper group">
     <%= yield %>
   </div>
 

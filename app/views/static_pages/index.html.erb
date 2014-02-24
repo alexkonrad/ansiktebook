@@ -1,10 +1,12 @@
 <% if logged_in? %>
+<div class="profile">
   <%= render partial: "shared/profile", locals: {
       user: @user,
       status: @status
     } %>
+</div>
 
-  <div class="posts">
+ <div class="posts">
     <%= render partial: "shared/profile_nav", locals: {
       user: @user
     } %>
@@ -15,7 +17,7 @@
         message: "Post"
       } %>
     <%= render partial: "shared/post", collection: @posts %>
-  </div>
+ </div>
 
   <!-- <%= render partial: "shared/friend_requests", collection: @users, as: :user %> -->
 <% else %>
