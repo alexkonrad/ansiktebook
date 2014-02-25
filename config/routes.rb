@@ -24,6 +24,7 @@ Facebook::Application.routes.draw do
   namespace :api do
     resources :users do
       resources :posts
+      resources :photos
     end
   end
 

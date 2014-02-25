@@ -21,7 +21,6 @@ class Api::PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     @post.update_attributes(params[:post])
-
   end
 
   def destroy
@@ -29,5 +28,4 @@ class Api::PostsController < ApplicationController
 
     @post.destroy
   end
-
 end

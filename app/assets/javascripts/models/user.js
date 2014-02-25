@@ -4,4 +4,9 @@ Facebook.Models.User = Backbone.Model.extend({
     this.posts.url = '/users/' + this.id + '/posts';
     this.posts.on("reset", this.updateCounts);
   }
+  
+  parse: function (response) {
+  	  
+	  return response;
+  }
 });
