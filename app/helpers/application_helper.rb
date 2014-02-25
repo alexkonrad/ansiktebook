@@ -39,6 +39,10 @@ module ApplicationHelper
     })
   end
 
+  def is_liked?(post)
+    post.liked_by?(current_user)
+  end
+
   def parse_notification(notification)
     return "" unless notification.notifiable
     case notification.notifiable_type

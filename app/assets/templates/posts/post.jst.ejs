@@ -1,0 +1,63 @@
+<div class="post">
+  <div class="group">
+    <div class="post-image">
+      <img src="<%= post.author.profile_picture %>" height=75 width=75>
+    </div>
+    <div class="post-content">
+      <a><strong><%= post.author.username %></strong></a>
+    <% if (post.author != post.recipient) { %>
+      <strong>></strong>
+      <a><strong><%= post.recipient.username %></strong></a>
+    <% } %>
+      <p class="post-text"><%= post.text %></p>
+    </div>
+  </div>
+  <div class="post-footer">
+    <div class="likes <%= post.liking_user_ids.contains(post.current_user_id) ? "can-like" : "cannot-like" %>">
+      <div class="post-footer-item unlike"><button>Unlike</button></div>
+      <div class="post-footer-item like"><button>Like</button></div>
+    </div>
+
+    <div class="post-footer-item">posted <%= post.created_at %> ago</div>
+
+    <div class="post-footer-item">
+      <%= post.likes.count %>
+      <%= post.likes.count == 1 ? "like" : "likes" %>
+    </div>
+
+    <% post.comments.forEach(function (comment) { %>
+      <div class="group">
+        <div class="comment-image">
+          <img src="<%= comment.author.profile_picture %>" height=75 width=75>
+        </div>
+        <div class="comment-content">
+          <a href="#"><strong><%= comment.author.username %></strong></a>
+          <div class="comment-text"><%= comment.body %></div>
+        </div>
+      <div class="post-footer-item comments delete-comment">
+      <% if (comment.author.id == post.current_user_id ||
+             post.recipient.id == post.current_user_id) { %>
+        <button class="delete-comment-button">Delete</button>
+      <% } %>
+      </div>
+    </div>
+    <% }); %>
+
+    <div class="post-footer-item comment">
+      <form>
+        <input type="textarea">
+        <input type="submit" value="Comment">
+      </form>
+    </div>
+
+    <div class="post-footer-item edit">
+      <div class="edit-or-delete-comment">
+      <% if (post.author.id == post.current_user_id) { %>
+        <button class="edit-comment-button">Edit</button>
+      <% } else if (post.recipient.id == post.current_user.id) { %>
+        <button>Delete</button>
+      <% } %>
+      </div>
+    </div>
+  </div>
+</div>

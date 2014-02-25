@@ -7,15 +7,23 @@
     </div>
     <div class="post-content">
       <a href="<%= user_url(post.author) %>">
-        <strong><%= post.author.username %></strong>
+        <strong>
+          <%= post.author.username %>
+        </strong>
       </a>
     <% unless post.author == post.recipient %>
-      <strong>></strong>
+      <strong>
+        >
+      </strong>
       <a href="<%= user_url(post.recipient) %>">
-        <strong><%= post.recipient.username %></strong>
+        <strong>
+          <%= post.recipient.username %>
+        </strong>
       </a>
     <% end %>
-      <p class="post-text"><%= post.text %></p>
+      <p class="post-text">
+        <%= post.text %>
+      </p>
     </div>
   </div>
 
@@ -47,9 +55,13 @@
         </div>
         <div class="comment-content">
           <a href="<%= user_url(comment.author) %>">
-            <strong><%= comment.author.username %></strong>
+            <strong>
+              <%= comment.author.username %>
+            </strong>
           </a>
-          <div class="comment-text"><%= comment.body %></div>
+          <div class="comment-text">
+            <%= comment.body %>
+          </div>
         </div>
       <div class="post-footer-item comments delete-comment">
       <% if comment.author == current_user || post.recipient == current_user %>
@@ -70,18 +82,18 @@
     </div>
 
     <div class="post-footer-item edit">
+    <div class="edit-or-delete-comment">
     <% if post.author == current_user %>
-    <div class="edit-or-delete-comment">
-      <%= button_to "Edit", edit_user_post_url(post.recipient_id, post), method: :get %>
-    </div>
-    <div class="edit-or-delete-comment">
+      <%= button_to "Edit",
+                    edit_user_post_url(post.recipient_id, post),
+                    method: :get %>
       <%= button_to "Delete", user_post_url(post.recipient_id, post), method: :delete %>
-    </div>
     <% elsif post.recipient == current_user %>
-    <div class="edit-or-delete-comment">
-      <%= button_to "Delete", post_url(post.recipient_id, post), method: :delete %>
-    </div>
+      <%= button_to "Delete",
+                    post_url(post.recipient_id, post),
+                    method: :delete %>
     <% end %>
+    </div>
     </div>
   </div>
 </div>
