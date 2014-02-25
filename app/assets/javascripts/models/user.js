@@ -1,14 +1,8 @@
 Facebook.Models.User = Backbone.Model.extend({
-  initialize: function () {
+  urlRoot: "/api/users",
+  initialize: function (options) {
+    this.id = options.id
   },
-
-  parse: function (resp) {
-    if (resp["posts"]) {
-      this.posts.add(resp["posts"]);
-    }
-	  return resp;
-  },
-
   posts: function () {
     if (!this.get('posts')) {
       var newPosts = new Facebook.Collections.Posts([], {
@@ -19,5 +13,14 @@ Facebook.Models.User = Backbone.Model.extend({
       });
     }
     return this.get('posts');
+  },
+  parse: function (resp) {
+    if (resp["posts"]) {
+      this.posts().add(resp["posts"]);
+    }
+	  return resp;
+  },
+  toJSON: function () {
+
   }
 });

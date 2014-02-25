@@ -19,7 +19,6 @@ Facebook.Routers.Users = Backbone.Router.extend({
 
   show: function (id) {
     var userShowView = new Facebook.Views.UserShow({
-      collection: this.users,
       model: this.users.get(id)
     });
 

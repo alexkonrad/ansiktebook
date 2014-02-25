@@ -10,11 +10,9 @@ Facebook.Views.UsersShow = Backbone.View.extend({
     this.$el.html(renderedProfile);
 
     this.model.posts.each(function(post) {
-      var renderedPost = new Facebook.Views.PostsShow({
-        model: post
-      });
-
-      this.$el.append(renderedPost);
+      this.$el.append(JST['posts/post']({
+        post: post
+      }))
     })
 
     return this;

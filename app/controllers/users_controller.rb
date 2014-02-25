@@ -1,6 +1,19 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    if logged_in?
+      @user = User
+        .includes(:received_posts)
+        .find(current_user.id)
+
+      @status = @user
+        .status
+
+      @posts = Post.all.reverse
+
+      @users = current_user.friend_requesters.all
+    else
+      @user = User.new
+    end
   end
 
   def new
