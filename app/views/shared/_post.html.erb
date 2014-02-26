@@ -90,7 +90,7 @@
       <%= button_to "Delete", user_post_url(post.recipient_id, post), method: :delete %>
     <% elsif post.recipient == current_user %>
       <%= button_to "Delete",
-                    post_url(post.recipient_id, post),
+                    user_post_url(post.recipient_id, post),
                     method: :delete %>
     <% end %>
     </div>

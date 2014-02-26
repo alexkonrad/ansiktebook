@@ -1,42 +1,66 @@
 <div class="post">
   <div class="group">
     <div class="post-image">
-      <img src="<%= post.author.profile_picture %>" height=75 width=75>
+      <img src="<%= post.get('author').escape('profile_picture') %>"
+           height=75
+           width=75>
     </div>
     <div class="post-content">
-      <a><strong><%= post.author.username %></strong></a>
-    <% if (post.author != post.recipient) { %>
-      <strong>></strong>
-      <a><strong><%= post.recipient.username %></strong></a>
+      <a>
+        <strong>
+          <%= post.get('author').escape('username') %>
+        </strong>
+      </a>
+
+    <% if (post.get('author') != post.get('recipient')) { %>
+      <strong>
+        >
+      </strong>
+      <a>
+        <strong>
+          <%= post.get('recipient').escape('username') %>
+        </strong>
+      </a>
     <% } %>
-      <p class="post-text"><%= post.text %></p>
+
+      <p class="post-text">
+        <%= post.escape('text') %>
+      </p>
     </div>
   </div>
   <div class="post-footer">
-    <div class="likes <%= post.liking_user_ids.contains(post.current_user_id) ? "can-like" : "cannot-like" %>">
+    <div class="likes <%= _.contains(post.get('liking_user_ids'), post.get('current_user_id')) ? "can-like" : "cannot-like" %>">
       <div class="post-footer-item unlike"><button>Unlike</button></div>
       <div class="post-footer-item like"><button>Like</button></div>
     </div>
 
-    <div class="post-footer-item">posted <%= post.created_at %> ago</div>
-
     <div class="post-footer-item">
-      <%= post.likes.count %>
-      <%= post.likes.count == 1 ? "like" : "likes" %>
+      posted <%= post.escape('created_at') %> ago
     </div>
 
-    <% post.comments.forEach(function (comment) { %>
+    <div class="post-footer-item">
+      <%= post.get('likes').count %>
+      <%= post.get('likes').count == 1 ? "like" : "likes" %>
+    </div>
+
+    <% post.get('comments').each(function (comment) { %>
       <div class="group">
         <div class="comment-image">
-          <img src="<%= comment.author.profile_picture %>" height=75 width=75>
+          <img src="<%= comment.get('author').get('profile_picture') %>" height=75 width=75>
         </div>
         <div class="comment-content">
-          <a href="#"><strong><%= comment.author.username %></strong></a>
-          <div class="comment-text"><%= comment.body %></div>
+          <a href="#">
+            <strong>
+              <%= comment.get('author').escape('username') %>
+            </strong>
+          </a>
+          <div class="comment-text">
+            <%= comment.escape('body') %>
+          </div>
         </div>
       <div class="post-footer-item comments delete-comment">
-      <% if (comment.author.id == post.current_user_id ||
-             post.recipient.id == post.current_user_id) { %>
+      <% if ((comment.get('author').get('id') == post.get('current_user_id')) ||
+             (post.get('recipient').get('id') == post.get('current_user_id'))) { %>
         <button class="delete-comment-button">Delete</button>
       <% } %>
       </div>
@@ -52,9 +76,10 @@
 
     <div class="post-footer-item edit">
       <div class="edit-or-delete-comment">
-      <% if (post.author.id == post.current_user_id) { %>
+      <% if (post.get('author').get('id') == post.get('current_user_id')) { %>
         <button class="edit-comment-button">Edit</button>
-      <% } else if (post.recipient.id == post.current_user.id) { %>
+      <% } %>
+      <% if (post.get('recipient').get('id') == post.get('current_user_id')) { %>
         <button>Delete</button>
       <% } %>
       </div>

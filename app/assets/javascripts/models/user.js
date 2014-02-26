@@ -6,7 +6,7 @@ Facebook.Models.User = Backbone.Model.extend({
   posts: function () {
     if (!this.get('posts')) {
       var newPosts = new Facebook.Collections.Posts([], {
-        user: this
+        user_id: this.id
       });
       this.set({
         posts: newPosts

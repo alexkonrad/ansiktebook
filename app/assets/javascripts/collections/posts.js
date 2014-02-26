@@ -3,7 +3,11 @@ Facebook.Collections.Posts = Backbone.Collection.extend({
   model: Facebook.Models.Post,
 
   url: function () {
-    return 'api/users/' + this.user_id + '/posts';
+    // for static_pages
+    // return 'users/' + this.user_id + '/posts';
+
+    // for user show page
+    return '/users/' + this.user_id + '/posts';
   },
 
   // url: "/api/users",

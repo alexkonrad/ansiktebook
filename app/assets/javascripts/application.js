@@ -28,8 +28,6 @@ $(document).ready(function() {
     $likes = $(this).parents(".likes");
 
     $likes.toggleClass("can-like");
-
-    $(ajax)
   });
 
 });

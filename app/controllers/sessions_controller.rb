@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
       user = User.create({
         username: "Alex Konrad",
         email: "alexkonrad08@gmail.com",
-        birthday: "1990-01-26"        
+        birthday: "1990-01-26"
       })
       user.password = "amkamk"
     end
