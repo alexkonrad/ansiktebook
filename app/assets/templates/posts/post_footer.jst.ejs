@@ -1,0 +1,26 @@
+<div class="post-footer">
+  <div class="likes <%= _.contains(post.get('liking_user_ids'), post.get('current_user_id')) ? "can-like" : "cannot-like" %>">
+    <div class="post-footer-item unlike"><button>Unlike</button></div>
+    <div class="post-footer-item like"><button>Like</button></div>
+  </div>
+
+  <div class="post-footer-item">
+    posted <%= post.escape('created_at') %> ago
+  </div>
+
+  <div class="post-footer-item">
+    <%= post.get('likes').count %>
+    <%= post.get('likes').count == 1 ? "like" : "likes" %>
+  </div>
+
+  <div class="post-footer-item edit">
+    <div class="edit-or-delete-comment">
+    <% if (post.get('author').get('id') == post.get('current_user_id')) { %>
+      <button class="edit-comment-button">Edit</button>
+    <% } %>
+    <% if (post.get('recipient').get('id') == post.get('current_user_id')) { %>
+      <button>Delete</button>
+    <% } %>
+    </div>
+  </div>
+</div>

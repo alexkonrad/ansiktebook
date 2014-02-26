@@ -5,6 +5,15 @@ window.Facebook = {
   Routers: {},
   initialize: function() {
     console.log('Hello from Backbone!');
+
+    // also bootstrap instead of fetch
+    // search for users
+    Facebook.users = Facebook.Collections.Users();
+    Facebook.users.fetch({
+      success: function () {
+
+      }
+    })
   }
 };
 

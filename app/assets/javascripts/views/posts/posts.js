@@ -4,13 +4,22 @@ Facebook.Views.Posts = Backbone.View.extend({
 
   render: function () {
     var that = this;
-    this.$el.html("hello")
     this.collection.each(function(post) {
-      var renderedContent = that.template({
+      var renderedPost = that.template({
         post: post
       });
-      that.$el.append(renderedContent);
-    })
+
+      that.$el.append(renderedPost);
+
+      post.get('comments').each(function (comment) {
+        var commentShowView = new Facebook.Views.Comments({
+          model: comment,
+          post: post
+        });
+
+        that.$el.append(commentShowView.render().$el);
+      })
+    });
 
     return this;
   }
