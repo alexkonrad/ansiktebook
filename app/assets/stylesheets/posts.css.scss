@@ -77,11 +77,17 @@ a:hover {
 a .display-comment-link {
   display: block;
 }
+.delete-comment {
+  display: none;
+}
 
 
-.post-footer-item:hover > .delete-comment {
-  background: red;
-  //display: block;
+.post-footer-item:hover .delete-comment {
+  display: block;
+  float: right;
+  a {
+    font-size: 10px;
+  }
 }
 
 .new-comment {
@@ -111,14 +117,6 @@ a .display-comment-link {
 //  padding: 10px;
   overflow: hidden;
 }
-
-.delete-comment {
-  float: right;
-  a {
-    font-size: 10px;
-  }
-}
-
 .comment-image {
   float: left;
   width: 75px;
@@ -160,3 +158,27 @@ a .display-comment-link {
     display: inline;
   };
 }
+
+input[type="textarea"] {
+  font-size: 13px;
+  padding: 5px 10px;
+  color: #6D6D6D;
+}
+//
+//input[type="textarea"] {
+//  position: relative;
+//  background: transparent;
+//  height: 20px;
+//}
+//
+//input[type="textarea"]:focus + label {
+//  display: none;
+//};
+//
+//label {
+//  font-size: 13px;
+//  position: absolute;
+//  padding-bottom: 3px;
+//  left: 495px;
+//  color: #6D6D6D
+//}
