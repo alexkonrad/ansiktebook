@@ -1,7 +1,9 @@
 Facebook.Views.PostShow = Backbone.View.extend({
   template: JST['posts/show'],
   className: "post",
-
+  initialize: function() {
+    this.listenTo(this.model, "all", this.render)
+  },
   render: function() {
     var renderedPost = this.template({
       post: this.model

@@ -9,8 +9,10 @@ Facebook.Models.Post = Backbone.Model.extend({
     return resp;
   },
 
+  urlRoot: "/posts",
+
   toJSON: function () {
-    var data = { "user_id" : this.get('recipient').id,
+    var data = { "user_id" : this.get('recipient').get('id'),
                  "post" : { "text" : this.get('text') }};
 
     return data;

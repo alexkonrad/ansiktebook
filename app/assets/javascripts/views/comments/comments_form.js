@@ -23,11 +23,19 @@ Facebook.Views.CommentsForm = Backbone.View.extend({
     event.preventDefault();
     var data = this.$el.serializeJSON();
     var model = new Facebook.Models.Comment(data);
+    event.currentTarget.reset();
+
     model.set({
       author: Facebook.currentUser
     });
-    this.collection.add(model);
-    model.save();
+
+    var that = this;
+    model.save({}, {
+      success: function (model) {
+      }
+    });
+
+    this.collection.push(model);
 
   }
 })

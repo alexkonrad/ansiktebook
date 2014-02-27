@@ -22,7 +22,15 @@ class PostsController < ApplicationController
     if @post.save
       notify!(@post.recipient, @post)
       flash[:notices] = ["created post"]
-      redirect_to user_url(@post.recipient_id)
+      respond_to do |format|
+        format.html { redirect_to user_url(@post.recipient_id) }
+        format.json do
+          render json: render_to_string(
+            template: 'posts/_post.json.jbuilder',
+            locals: { post: @post }
+          )
+        end
+      end
     else
       flash.now[:errors] = @post.errors.full_messages
       render :new

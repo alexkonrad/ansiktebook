@@ -14,8 +14,6 @@ Facebook.Views.CommentShow = Backbone.View.extend({
 
     this.$el.html(renderedComment);
 
-    console.log("comment show: ", this.$el)
-
     return this;
   },
   destroy: function (event) {
