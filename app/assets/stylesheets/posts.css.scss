@@ -20,7 +20,26 @@
 }
 
 .post-form {
-	margin: 0;
+	margin-bottom: 10px;
+  background: #F7F7F7;
+//  border: 1px solid lightgray;
+  .new-post-text {
+  }
+  input[type="textarea"] {
+    width: 410px;
+  }
+  input[type="submit"] {
+    float: right;
+    margin-top: 5px;
+    background: #3F5D9D;
+    padding: 5px 15px;
+    color: white;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 13px;
+    border: 1px solid darkblue;
+    border-radius: 3px;
+  }
 }
 
 .post-image {
@@ -33,6 +52,7 @@
 
 .post-content {
   float: left;
+  width: 345px;
   padding-left: 10px;
 }
 
@@ -92,11 +112,20 @@ a .display-comment-link {
 
 .new-comment {
   margin-top: 10px;
-  padding-left: 10px;
+  padding-left: 0px;
 }
 
 .edit {
+  display: none;
+}
+
+
+.post:hover .edit {
+  display: block;
   float: right;
+  a {
+    font-size: 10px;
+  }
 }
 
 .comment {

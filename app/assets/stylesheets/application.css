@@ -31,7 +31,8 @@ input[type="email"],
 input[type="date"],
 input[type="textarea"],
 input[type="file"]
-input[type="submit"] {
+input[type="submit"]
+textarea {
   -webkit-appearance: none;
   display: inline-block;
   box-sizing: content-box;
@@ -45,7 +46,6 @@ input[type="submit"] {
   background: transparent;
   color: inherit;
 }
-
 
 .group {
   clear: both;
@@ -99,7 +99,7 @@ input[type="textarea"] {
   background: white;
   border: 1px solid lightgray;
   padding: 3px;
-  margin: 10px;
+  margin: 0px;
 }
 
 input[type="date"] {
@@ -119,8 +119,7 @@ input[type="date"] {
 }
 
 #post_comment {
-  width: 400px;
-  margin: 0 20px 0 0;
+  width: 410px;
 }
 
 .edit-or-delete-comment {

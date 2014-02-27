@@ -23,6 +23,12 @@
     </a>
   <% } %>
 
+  <div class="edit">
+    <% if (post.get('author').get('id') == post.get('current_user_id')) { %>
+      <a class="edit-post-link">Edit</a><% } %><% if (post.get('recipient').get('id') == post.get('current_user_id')) { %> · <a class="delete-post-link">Delete</a>
+    <% } %>
+  </div>
+
     <p class="post-text">
       <%= post.escape('text') %>
     </p>

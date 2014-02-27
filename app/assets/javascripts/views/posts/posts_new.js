@@ -1,6 +1,6 @@
 Facebook.Views.PostNew = Backbone.View.extend({
   tagName: "form",
-  className: "post-form",
+  className: "post-form group",
   template: JST["posts/new"],
   intialize: function () {
   },
