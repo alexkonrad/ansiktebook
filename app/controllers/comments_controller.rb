@@ -4,7 +4,11 @@ class CommentsController < ApplicationController
     user = (@comment.commentable_type == "Post") ? @comment.commentable.author : @comment.commentable.user
     notify!(user, @comment)
     flash[:notices] = ["comment posted"]
-    redirect_to :back
+
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.json { render nothing: true }
+    end
   end
 
   def destroy
@@ -13,6 +17,9 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     flash[:notices] = ["comment deleted"]
-    redirect_to :back
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.json { render nothing: true }
+    end
   end
 end

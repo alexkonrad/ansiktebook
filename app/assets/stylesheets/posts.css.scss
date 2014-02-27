@@ -4,16 +4,19 @@
 
 .posts {
   float: left;
+  border-left: 1px solid lightgray;
+  margin-left: 10px;
+  padding-left: 10px;
+      width: 450px;
+//  width: 620px;
+  background: transparent;
+  overflow: hidden;
 }
 
 .post, .post-form {
-  border: 1px solid black;
-  margin-top: 5px;
-  padding: 10px;
-/*      width: 450px;*/
-//  width: 620px;
+  margin-bottom: 10px;
   background: white;
-  overflow: hidden;
+  padding: 10px;
 }
 
 .post-form {
@@ -22,6 +25,10 @@
 
 .post-image {
   float: left;
+}
+
+.post-body {
+  width: 430px;
 }
 
 .post-content {
@@ -33,26 +40,83 @@
   color: black;
 }
 
-.post-footer {
+a:hover {
+  cursor: pointer;
+};
 
+.post-footer {
+  padding: 10px;
+  background: #F7F7F7;
+  .comments-index {
+    padding-bottom: 0px;
+    background: #EDEFF4;
+
+  }
+}
+
+.comments-index {
+  background: #EDEFF4;
+  margin-top: 10px;
+  padding: 10px;
+
+  &:first-child {
+    background: red;
+  };
 }
 
 .post-footer-item {
-//  float: left;
-//  padding: 0 10px;
+  //  float: left;
+  //  padding: 0 10px;
+  font-size: 10px;
+  a {
+    font-size: 10px;
+    padding: 5px 5px 5px 0;
+  }
+}
+
+a .display-comment-link {
+  display: block;
+}
+
+
+.post-footer-item:hover > .delete-comment {
+  background: red;
+  //display: block;
+}
+
+.new-comment {
+  margin-top: 10px;
+  padding-left: 10px;
 }
 
 .edit {
   float: right;
 }
 
+.comment {
+  font-size: 13px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  width: 410px;
+  border-bottom: 1px solid lightgray;
+  a {
+    font-size: 13px;
+  }
+}
+
 .comment-item {
   float: left;
-//  margin: 5px;
   border: 1px solid lightgray;
   width: 580px;
 //  padding: 10px;
   overflow: hidden;
+}
+
+.delete-comment {
+  float: right;
+  a {
+    font-size: 10px;
+  }
 }
 
 .comment-image {
@@ -70,16 +134,29 @@
 	}
 }
 
-.like {
-  display: none;
-}
+//.like {
+//  display: none;
+//}
+//.unlike {
+//  display: inline;
+//}
+//
+//.can-like .like {
+//  display: inline;
+//}
+//.can-like .unlike {
+//  display: none;
+//}
 .unlike {
-  display: block;
+  display: inline;
+  .can-like: {
+    display: none;
+  };
 }
 
-.can-like .like {
-  display: block;
-}
-.can-like .unlike {
+.like {
   display: none;
+  .can-like: {
+    display: inline;
+  };
 }

@@ -1,8 +1,11 @@
 Facebook.Views.CommentShow = Backbone.View.extend({
-  className: "group",
+  className: "post-footer-item comment group",
   template: JST['comments/show'],
   initialize: function () {
     this.listenTo(this.model, "all", this.render);
+  },
+  events: {
+    "click .delete-comment-link" : "destroy"
   },
   render: function() {
     var renderedComment = this.template({
@@ -11,8 +14,13 @@ Facebook.Views.CommentShow = Backbone.View.extend({
 
     this.$el.html(renderedComment);
 
-    console.log(this.$el)
+    console.log("comment show: ", this.$el)
 
     return this;
+  },
+  destroy: function (event) {
+    event.preventDefault();
+    console.log("destoying...")
+    this.model.destroy();
   }
 })

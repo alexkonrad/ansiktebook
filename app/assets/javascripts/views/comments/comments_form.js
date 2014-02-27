@@ -1,6 +1,6 @@
 Facebook.Views.CommentsForm = Backbone.View.extend({
   tagName: "form",
-  className: "post-footer-item comment",
+  className: "post-footer-item new-comment",
   template: JST["comments/new"],
   intialize: function () {
   },
@@ -22,6 +22,12 @@ Facebook.Views.CommentsForm = Backbone.View.extend({
   submit: function (event) {
     event.preventDefault();
     var data = this.$el.serializeJSON();
-    this.collection.create(data);
+    var model = new Facebook.Models.Comment(data);
+    model.set({
+      author: Facebook.currentUser
+    });
+    this.collection.add(model);
+    model.save();
+
   }
 })

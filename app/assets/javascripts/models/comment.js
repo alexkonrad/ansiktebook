@@ -5,6 +5,8 @@ Facebook.Models.Comment = Backbone.Model.extend({
     })
   },
 
+  urlRoot: "/comments",
+
   toJSON: function() {
     var data = {
       "comment" : {

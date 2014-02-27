@@ -18,16 +18,9 @@ Facebook::Application.routes.draw do
     resource :friendship, only: [:destroy]
   end
   resources :photos, only: [:destroy]
-  resources :comments, only: [:destroy]
+  resource :comments, only: [:create]
   resource :session, only: [:create, :destroy]
-
-  namespace :api do
-    resources :users do
-      resources :posts
-      resources :photos
-    end
-  end
-
+  delete 'comments/:id', to: "comments#destroy", as: "comments"
   root to: "static_pages#index"
 
   get 'demo', to: "sessions#demo"

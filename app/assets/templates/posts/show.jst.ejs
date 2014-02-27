@@ -1,32 +1,30 @@
-<div class="post">
-  <div class="group">
-    <div class="post-image">
-      <img src="<%= post.get('author').escape('profile_picture') %>"
-           height=75
-           width=75>
-    </div>
-    <div class="post-content">
-      <a>
-        <strong>
-          <%= post.get('author').escape('username') %>
-        </strong>
-      </a>
 
-    <% if (post.get('author') != post.get('recipient')) { %>
-      <strong>
-        >
-      </strong>
-      <a>
-        <strong>
-          <%= post.get('recipient').escape('username') %>
-        </strong>
-      </a>
-    <% } %>
-
-      <p class="post-text">
-        <%= post.escape('text') %>
-      </p>
-    </div>
+<div class="post-body group">
+  <div class="post-image">
+    <img src="<%= post.get('author').escape('profile_picture') %>"
+         height=75
+         width=75>
   </div>
+  <div class="post-content">
+    <a>
+      <strong>
+        <%= post.get('author').escape('username') %>
+      </strong>
+    </a>
 
+  <% if (post.get('author') != post.get('recipient')) { %>
+    <strong>
+      >
+    </strong>
+    <a>
+      <strong>
+        <%= post.get('recipient').escape('username') %>
+      </strong>
+    </a>
+  <% } %>
+
+    <p class="post-text">
+      <%= post.escape('text') %>
+    </p>
+  </div>
 </div>

@@ -15,6 +15,19 @@ Facebook.Views.PostShow = Backbone.View.extend({
 
     this.$el.append(renderedPostFooter);
 
+    var postCommentsView = new Facebook.Views.CommentsIndex({
+      collection: this.model.get('comments')
+    });
+
+    this.$el.append(postCommentsView.render().$el);
+
+    var commentFormView = new Facebook.Views.CommentsForm({
+      collection: this.model.get('comments'),
+    });
+
+    this.$el.append(commentFormView.render().$el);
+
+
     return this;
   }
 

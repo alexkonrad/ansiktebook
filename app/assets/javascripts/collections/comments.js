@@ -9,5 +9,5 @@ Facebook.Collections.Comments = Backbone.Collection.extend({
   initialize: function(models, options) {
     this.post = options.post;
     this.add(models);
-  }
+  },
 })

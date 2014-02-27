@@ -65,7 +65,7 @@
         </div>
       <div class="post-footer-item comments delete-comment">
       <% if comment.author == current_user || post.recipient == current_user %>
-        <%= button_to "Delete", comment_url(comment), method: :delete %>
+        <%= button_to "Delete", comments_url(comment), method: :delete %>
       <% end %>
       </div>
     </div>
