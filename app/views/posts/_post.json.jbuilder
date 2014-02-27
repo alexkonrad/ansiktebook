@@ -13,6 +13,7 @@ end
 
 json.comments post.comments do |comment|
   json.(comment, :id, :body)
+  json.post_id post.id
   json.author do |json|
     json.(comment.author, :id, :username, :profile_picture)
     json.profile_picture comment.author.profile_picture.url(:small)

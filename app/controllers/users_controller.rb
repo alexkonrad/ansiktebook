@@ -8,9 +8,11 @@ class UsersController < ApplicationController
       @status = @user
         .status
 
+      @users = User.all
+
       @posts = Post.all.reverse
 
-      @users = current_user.friend_requesters.all
+      @friend_requesters = current_user.friend_requesters.all
     else
       @user = User.new
     end

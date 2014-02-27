@@ -8,8 +8,11 @@ Facebook.Models.Post = Backbone.Model.extend({
 
     return resp;
   },
-  // TODO:
+
   toJSON: function () {
-   // DO THIS NEXT
+    var data = { "user_id" : this.get('recipient').id,
+                 "post" : { "text" : this.get('text') }};
+
+    return data;
   }
 });

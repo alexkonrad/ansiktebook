@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.serializeJSON
 //= require jquery.ui.all
 //= require underscore
 //= require backbone
@@ -22,12 +23,3 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
-
-$(document).ready(function() {
-  $(".likes").on("ajax:success", "form", function(event, data){
-    $likes = $(this).parents(".likes");
-
-    $likes.toggleClass("can-like");
-  });
-
-});

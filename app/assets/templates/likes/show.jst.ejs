@@ -1,0 +1,22 @@
+<div class="post-footer">
+  <div class="likes <%= post.liking_user_ids.contains(post.current_user_id) ? "can-like" : "cannot-like" %>">
+    <div class="unlike">
+      <form class="post-footer-item"
+            action="<%= post.like_url %>"
+            method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="likeable_id" value="<%= post.id %>">
+        <input type="hidden" name="likeable_type" value="Post">
+        <input type="submit" value="Unlike">
+      </form>
+    </div>
+    <div class="like">
+      <form class="post-footer-item"
+            action="<%= post.like_url %>"
+            method="post">
+        <input type="hidden" name="likeable_id" value="<%= post.id %>">
+        <input type="hidden" name="likeable_type" value="Post">
+        <input type="submit" value="Unlike">
+      </form>
+    </div>
+  </div>

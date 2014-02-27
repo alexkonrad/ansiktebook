@@ -1,12 +1,19 @@
-Facebook.Views.PostsIndex = Backbone.View.extend({
+Facebook.Views.PostShow = Backbone.View.extend({
   template: JST['posts/show'],
+  className: "post",
 
   render: function() {
-    var renderedContent = this.template({
+    var renderedPost = this.template({
       post: this.model
     });
 
-    this.$el.html(renderedContent);
+    this.$el.html(renderedPost);
+
+    var renderedPostFooter = JST['posts/post_footer']({
+      post: this.model
+    });
+
+    this.$el.append(renderedPostFooter);
 
     return this;
   }

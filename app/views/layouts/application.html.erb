@@ -24,5 +24,11 @@
     <%= yield %>
   </div>
 
+  <script>
+  $(function() {
+    window.Facebook.current_user_id = <%= current_user.id %>
+    console.log(window.Facebook.current_user_id)
+  })
+  </script>
 </body>
 </html>

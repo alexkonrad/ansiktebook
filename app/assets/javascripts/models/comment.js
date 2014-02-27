@@ -4,13 +4,16 @@ Facebook.Models.Comment = Backbone.Model.extend({
       author: new Facebook.Models.User(this.get('author'))
     })
   },
-  parse: function(resp) {
-    // var author = new Facebook.Models.User(resp["author"]);
-    // resp.author = author;
-    resp.author = new Facebook.Models.User(resp["author"]);
 
-    console.log(resp)
-
-    return resp;
+  toJSON: function() {
+    var data = {
+      "comment" : {
+        "body" : this.get("body"),
+        "commentable_type" : this.get("commentable_type"),
+        "commentable_id" : this.get("commentable_id"),
+        "user_id" : Facebook.currentUser.id
+      }
+    };
+    return data;
   }
 })

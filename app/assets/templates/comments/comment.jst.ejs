@@ -12,5 +12,10 @@
         <%= comment.escape('body') %>
       </div>
     </div>
-
+  <div class="post-footer-item comments delete-comment">
+  <% if ((comment.get('author').get('id') == window.Facebook.current_user_id) ||
+         (post.get('recipient').get('id') == window.Facebook.current_user_id)) { %>
+    <button class="delete-comment-button">Delete</button>
+  <% } %>
+  </div>
 </div>

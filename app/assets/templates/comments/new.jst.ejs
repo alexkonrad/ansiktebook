@@ -1,6 +1,4 @@
-<div class="post-footer-item comment">
-  <form>
-    <input type="textarea">
-    <input type="submit" value="Comment">
-  </form>
-</div>
+<input type="hidden" name="commentable_id" value="<%= post.id %>">
+<input type="hidden" name="commentable_type" value="Post">
+<input type="textarea" name="body" id="post_comment">
+<input type="submit" value="Comment">

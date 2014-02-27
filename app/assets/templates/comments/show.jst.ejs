@@ -1,0 +1,16 @@
+<div class="comment-image">
+  <img src="<%= comment.get('author').get('profile_picture') %>" height=75 width=75>
+</div>
+<div class="comment-content">
+  <a href="#">
+    <strong>
+      <%= comment.get('author').escape('username') %>
+    </strong>
+  </a>
+  <div class="comment-text">
+    <%= comment.escape('body') %>
+  </div>
+</div>
+<div class="post-footer-item comments delete-comment">
+  <button class="delete-comment-button">Delete</button>
+</div>
