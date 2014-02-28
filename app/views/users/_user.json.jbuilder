@@ -1,6 +1,7 @@
 json.(user, :id, :username, :email, :birthday, :about)
-json.status user.status.text
+json.status user.status.text if user.status
 json.profile_picture user.profile_picture.url(:small)
+json.large_profile_picture user.profile_picture.url(:large)
 
 json.friend_requests do |json|
   json.partial! 'users/friend_requests', collection: user.friend_requesters, as: :users

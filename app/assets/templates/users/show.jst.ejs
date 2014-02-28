@@ -1,0 +1,12 @@
+<div class="user">
+  <div class="photo-index-item">
+    <a class="user-show-link">
+      <div class="overlay">
+        <div class="user-show-username">
+          <%= user.escape('username') %>
+        </div>
+        <img src="<%= user.escape('profile_picture') %>">
+      </div>
+    </a>
+  </div>
+</div>

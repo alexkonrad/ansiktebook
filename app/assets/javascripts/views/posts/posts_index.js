@@ -5,14 +5,15 @@ Facebook.Views.PostsIndex = Backbone.View.extend({
     this.listenTo(this.collection, "add remove", this.render);
   },
   events: {
-    "click .profile-photos-index-link" : "photos"
+    "click .profile-photos-index-link" : "photos",
+    "click .profile-users-index-link" : "users"
   },
   render: function() {
     var renderedProfileNavView = JST['shared/profile_nav']({
-      user: Facebook.currentUser
+      user: this.model
     });
-
-    this.$el.append(renderedProfileNavView);
+    console.log(this.el)
+    this.$el.html(renderedProfileNavView);
 
     var postNewView = new Facebook.Views.PostNew({
       collection: this.collection
@@ -33,6 +34,7 @@ Facebook.Views.PostsIndex = Backbone.View.extend({
       });
 
       that.$el.append(renderedPost);
+      console.log(that.el)
     });
 
     return this;
@@ -40,8 +42,13 @@ Facebook.Views.PostsIndex = Backbone.View.extend({
 
   photos: function() {
     event.preventDefault();
-    var url = '#/users/' + Facebook.currentUser.get('id') + "/photos"
+    var url = '#/users/' + this.model.get('id') + "/photos"
+    Backbone.history.navigate(url);
+  },
+
+  users: function() {
+    event.preventDefault();
+    var url = '#/users';
     Backbone.history.navigate(url);
   }
-
 });

@@ -1,20 +1,27 @@
 Facebook.Views.PhotosIndex = Backbone.View.extend({
   template: JST['photos/index'],
+  className: "user-photos-index",
 
   initialize: function () {
     this.listenTo(this.collection, "add remove", this.render);
   },
   events: {
-    "click .profile-posts-index-link" : "posts"
+    "click .profile-posts-index-link" : "posts",
+    "click .profile-users-index-link" : "users"
   },
 
   render: function() {
-    alert("rendering photo index view")
+    var renderedProfileNavView = JST['shared/profile_nav']({
+      user: this.model
+    });
+
+    this.$el.html(renderedProfileNavView);
+
     var photoNewView = new Facebook.Views.PhotoNew({
       collection: this.collection
     });
 
-    this.$el.html(photoNewView.render().$el);
+    this.$el.append(photoNewView.render().$el);
 
     var that = this;
     this.collection.each(function(photo) {
@@ -36,10 +43,17 @@ Facebook.Views.PhotosIndex = Backbone.View.extend({
 
   posts: function() {
     event.preventDefault();
-    var url = 'users/' + Facebook.currentUser.get('id') + "/posts"
+    var url = '#/users/' + this.model.get('id') + "/posts"
+    Backbone.history.navigate(url, {
+      replace: true
+    });
+  },
+
+  users: function() {
+    event.preventDefault();
+    var url = '#/users';
     Backbone.history.navigate(url, {
       replace: true
     });
   }
-
 });

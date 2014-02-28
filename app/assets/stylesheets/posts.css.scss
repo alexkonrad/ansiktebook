@@ -4,14 +4,17 @@
 
 .posts {
   float: left;
+  display: inline-block;
   border-left: 1px solid lightgray;
   margin-left: 10px;
   padding-left: 10px;
-      width: 450px;
-//  width: 620px;
+  width: 450px;
+  width: 620px;
   background: transparent;
   overflow: hidden;
 }
+
+
 
 .post, .post-form {
   margin-bottom: 10px;
@@ -19,14 +22,19 @@
   padding: 10px;
 }
 
+.post {
+  width: 429px;
+}
+
 .post-form {
 	margin-bottom: 10px;
   background: #F7F7F7;
-//  border: 1px solid lightgray;
+  border: 1px solid lightgray;
+
   .new-post-text {
   }
-  input[type="textarea"] {
-    width: 410px;
+  input[type="text"] {
+    width: 405px;
   }
   input[type="submit"] {
     float: right;
@@ -40,6 +48,10 @@
     border: 1px solid darkblue;
     border-radius: 3px;
   }
+}
+
+.status {
+  margin: 15px 0;
 }
 
 .post-image {
@@ -66,6 +78,7 @@ a:hover {
 
 .post-footer {
   padding: 10px;
+  margin-top: 10px;
   background: #F7F7F7;
   .comments-index {
     padding-bottom: 0px;
@@ -75,13 +88,17 @@ a:hover {
 }
 
 .comments-index {
-  background: #EDEFF4;
-  margin-top: 10px;
-  padding: 10px;
+      margin-top: 10px;
+  .comment {
+    background: #EDEFF4;
+    padding: 10px;
+  }
 
-  &:first-child {
-    background: red;
-  };
+  .comment:first-child {
+  }
+  .comment:last-child {
+    border-bottom: 0;
+  }
 }
 
 .post-footer-item {
@@ -137,6 +154,11 @@ a .display-comment-link {
   a {
     font-size: 13px;
   }
+
+  img {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .comment-item {
@@ -188,7 +210,7 @@ a .display-comment-link {
   };
 }
 
-input[type="textarea"] {
+input[type="text"] {
   font-size: 13px;
   padding: 5px 10px;
   color: #6D6D6D;

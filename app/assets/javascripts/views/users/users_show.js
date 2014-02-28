@@ -1,21 +1,26 @@
-Facebook.Views.UsersShow = Backbone.View.extend({
-
+Facebook.Views.UserShow = Backbone.View.extend({
+  className: "user",
   template: JST['users/show'],
+  initialize: function () {
+  },
+
+  events: {
+    "click .user-show-link" : "show"
+  },
 
   render: function () {
-    var renderedProfile = this.template({
+    var renderedUser = this.template({
       user: this.model
     });
 
-    this.$el.html(renderedProfile);
-
-    this.model.posts.each(function(post) {
-      this.$el.append(JST['posts/post']({
-        post: post
-      }))
-    })
+    this.$el.html(renderedUser);
 
     return this;
-  }
+  },
 
+  show: function (event) {
+    event.preventDefault();
+    var url = "#/users/" + this.model.get('id');
+    Backbone.history.navigate(url);
+  }
 });

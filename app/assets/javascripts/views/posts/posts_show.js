@@ -32,12 +32,10 @@ Facebook.Views.PostShow = Backbone.View.extend({
 
     this.$el.append(commentFormView.render().$el);
 
-
     return this;
   },
   destroy: function (event) {
     event.preventDefault();
     this.model.destroy();
   }
-
 });

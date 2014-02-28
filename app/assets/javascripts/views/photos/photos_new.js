@@ -1,6 +1,5 @@
 Facebook.Views.PhotoNew = Backbone.View.extend({
-  tagName: "form",
-  className: "photo-form group",
+  className: "photo-form post-form group",
   template: JST["photos/new"],
   intialize: function () {
   },
@@ -19,8 +18,8 @@ Facebook.Views.PhotoNew = Backbone.View.extend({
     event.preventDefault();
 
     var data = this.$el.serializeJSON();
-
-    var model = new Facebook.Models.Post(data);
+    console.log(data)
+    var model = new Facebook.Models.Photo(data);
     model.set({
       user: Facebook.currentUser,
       likes: {}
@@ -29,6 +28,7 @@ Facebook.Views.PhotoNew = Backbone.View.extend({
     var that = this;
     model.save({}, {
       success: function (model) {
+        alert("in the save calback")
         that.collection.unshift(model);
       }
     });

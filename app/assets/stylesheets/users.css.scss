@@ -7,3 +7,58 @@
   padding: 20px;
   background: white;
 }
+
+.users-index {
+  float: left;
+  width:620px;
+}
+
+.user {
+  float: left;
+}
+
+.user-show-link {
+  position: relative;
+
+  .overlay {
+    background-color: black;
+    z-index: 1;
+  }
+
+  .user-show-username {
+    display: none;
+    top: 110px;
+    padding: 10px;
+    color: white;
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+.user-show-link:hover {
+
+  .user-show-username {
+    display: block;
+  }
+};
+
+.overlay:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+//    background: rgba(0,0,0, 0.5);
+background: none;
+//    -moz-transition: background .1s linear;
+//    -webkit-transition: background .1s linear;
+//    -o-transition: background .1s linear;
+//    transition: background .1s linear;
+}
+
+.overlay:hover:before {
+//    background: none;
+background: rgba(0,0,0, 0.5);
+}

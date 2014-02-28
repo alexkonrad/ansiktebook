@@ -10,15 +10,13 @@ window.Facebook = {
     // search for users
     Facebook.users = new Facebook.Collections.Users();
     Facebook.users.fetch({
-      success: function (users) {
-        // Facebook.history = new Backbone.History();
-        Facebook.currentUser = users.findWhere({id: Facebook.current_user_id});
+      success: function (users, response) {
+        Facebook.currentUser = users.findWhere({id: response.current_user_id});
         new Facebook.Routers.Profile({
           $rootEl: $(".posts"),
           users: Facebook.users
         })
         Backbone.history.start();
-        // Facebook.history.start({ pushState: true });
       }
     });
   }
