@@ -23,7 +23,3 @@ window.Facebook = {
     });
   }
 };
-
-$(document).ready(function(){
-  Facebook.initialize();
-});

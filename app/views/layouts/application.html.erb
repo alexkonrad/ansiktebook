@@ -26,10 +26,9 @@
 
   <% if logged_in? %>
   <script>
-  $(function() {
-    window.Facebook.current_user_id = <%= current_user.id %>
-    console.log(window.Facebook.current_user_id)
-  })
+    $(document).ready(function(){
+      Facebook.initialize();
+    });
   </script>
   <% end %>
 </body>

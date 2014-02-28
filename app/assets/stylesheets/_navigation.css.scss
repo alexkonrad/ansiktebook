@@ -21,12 +21,38 @@
 	.top-right-item {
 	  float: left;
 	}
-    a {
-      padding: 16px 20px 16px 20px;
-      font-size: 15px;
-    }
+  a {
+    padding: 16px 20px 16px 20px;
+    font-size: 15px;
+  }
 	input[type="submit"] {
 	  margin-top: 12px;
 	}
+}
+  .logged-out {
+    height: 100px;
+    a {
+      padding: 28px;
+      font-size: 36px;
+    }
+    .login {
+      float: right;
+    }
+    .email, .password {
+      float: left;
+      height: 50px;
+      width: 150px;
+      padding: 20px;
+      label {
+        padding: 5px 0px;
+        margin: 10px 0;
+        color: white;
+        font-size: 11px;
+      }
+    }
+    input[type="submit"] {
+      margin: 34px;
+      margin-left: 20px;
+    }
   }
 }
