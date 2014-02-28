@@ -60,6 +60,9 @@ class PostsController < ApplicationController
 
     flash[:notices] = ["post deleted"]
 
-    redirect_to static_pages_url
+    respond_to do |format|
+      format.html { redirect_to static_pages_url }
+      format.json { render nothing: true }
+    end
   end
 end

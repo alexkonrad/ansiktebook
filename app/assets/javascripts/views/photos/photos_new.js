@@ -1,7 +1,7 @@
-Facebook.Views.PostNew = Backbone.View.extend({
+Facebook.Views.PhotoNew = Backbone.View.extend({
   tagName: "form",
-  className: "post-form group",
-  template: JST["posts/new"],
+  className: "photo-form group",
+  template: JST["photos/new"],
   intialize: function () {
   },
 
@@ -22,8 +22,7 @@ Facebook.Views.PostNew = Backbone.View.extend({
 
     var model = new Facebook.Models.Post(data);
     model.set({
-      recipient: Facebook.currentUser,
-      author: Facebook.currentUser,
+      user: Facebook.currentUser,
       likes: {}
     });
 

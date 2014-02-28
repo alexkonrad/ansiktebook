@@ -18,7 +18,6 @@ Facebook.Views.CommentShow = Backbone.View.extend({
   },
   destroy: function (event) {
     event.preventDefault();
-    console.log("destoying...")
     this.model.destroy();
   }
 })

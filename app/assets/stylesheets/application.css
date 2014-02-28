@@ -31,8 +31,7 @@ input[type="email"],
 input[type="date"],
 input[type="textarea"],
 input[type="file"]
-input[type="submit"]
-textarea {
+input[type="submit"] {
   -webkit-appearance: none;
   display: inline-block;
   box-sizing: content-box;
@@ -65,6 +64,8 @@ body {
 img {
 	display: block;
 }
+
+@import 'posts';
 
 .navbar-wrapper {
   background: #2D4689;

@@ -6,6 +6,9 @@ class PhotosController < ApplicationController
 
     #@user_id = params[:user_id]
     @user = User.find(params[:user_id])
+    if request.xhr?
+      render template: "photos/index", collection: @photos, handlers: [:jbuilder]
+    end
   end
 
   def show

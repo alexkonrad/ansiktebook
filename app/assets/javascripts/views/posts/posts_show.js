@@ -4,6 +4,9 @@ Facebook.Views.PostShow = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.model, "all", this.render)
   },
+  events: {
+    "click .delete-post-link" : "destroy"
+  },
   render: function() {
     var renderedPost = this.template({
       post: this.model
@@ -31,6 +34,10 @@ Facebook.Views.PostShow = Backbone.View.extend({
 
 
     return this;
+  },
+  destroy: function (event) {
+    event.preventDefault();
+    this.model.destroy();
   }
 
 });

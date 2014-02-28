@@ -1,0 +1,17 @@
+<div class="status">
+  <strong>
+    <%= user.escape('username') %>
+  </strong>
+  <% if (user.get('status')) { %>
+    <%= user.escape('status') %>
+  <% } %>
+</div>
+
+<div class="group">
+  <div class="profile-nav-item">
+    <a class="profile-posts-index-link">Profile</a>
+  </div>
+  <div class="profile-nav-item">
+    <a class="profile-photos-index-link">Photos</a>
+  </div>
+</div>
