@@ -1,11 +1,15 @@
 # Facebook 
 
-## Controllers
+Facebook clone in Rails and Backbone.js. Implements users, friendships and friend requests, posts, photos, tags, likes, notifications, etc. Uses polymorphic associations for models, XHR/HTTP response capability for controllers, and a Backbone.js front-end for a single-page style application (but is also fully functional as a static web application). Below are some of its features followed by a TODO list.
+
+## Features
+
+### Controllers
  * Serve static pages for every route
  * Use JBuilder to template JSON for the Backbone front-end
  * Prefetches associated data with `includes`, etc.
 
-## Models
+### Models
  * User
  * Post
  * Photo
@@ -16,12 +20,12 @@
  * Notification (Polymorphic)
  * Comment (Polymorphic)
 
-## Views
+### Views
  * Partials for every static page element
  * Currently building those partials into the Backbone front-end
 
 
-## Itinerary
+## TODO
 
 ### Backbone
   * Finish users router for page navigation
