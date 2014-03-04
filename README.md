@@ -31,21 +31,27 @@
 
 #### Application
   * Add privacy settings
+
 #### Presentation
+
 ##### Splash
   * reformat signup page, float right on page
   * find something to put n left side
+
 ##### Navbar
   * add Friends button
   * add icons to home, profile, settings, button etc
   * add logout button
   * make a photo logo to replace the text button (?)
   * add a search bar with magnifying glass
+
 ##### Profile
   * allow editing profile attributes on the page
   * make about box editable on click
+
 ##### Friends
   * add partial to show small icons of top six friends with names
+
 ##### Posts
   * add yellow (notepad style) note box for flashes (?)
   * group posts by day (using light gray bar saying today/yesterday/may)
