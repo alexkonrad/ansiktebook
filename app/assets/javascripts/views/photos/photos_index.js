@@ -1,6 +1,6 @@
 Facebook.Views.PhotosIndex = Backbone.View.extend({
   template: JST['photos/index'],
-  className: "user-photos-index",
+  // className: "user-photos-index",
 
   initialize: function () {
     this.listenTo(this.collection, "add remove", this.render);
@@ -11,11 +11,12 @@ Facebook.Views.PhotosIndex = Backbone.View.extend({
   },
 
   render: function() {
+
     var renderedProfileNavView = JST['shared/profile_nav']({
       user: this.model
     });
 
-    this.$el.html(renderedProfileNavView);
+    this.$el.append(renderedProfileNavView);
 
     var photoNewView = new Facebook.Views.PhotoNew({
       collection: this.collection
@@ -30,13 +31,16 @@ Facebook.Views.PhotosIndex = Backbone.View.extend({
       });
 
       that.$el.append(photoShowView.render().$el);
-
-      var renderedPhoto = that.template({
-        photo: photo
-      });
-
-      that.$el.append(renderedPhoto);
     });
+
+    this.$('.in-posts').wrapAll("<div class=\"posts\">");
+
+    var userProfileShowView = new Facebook.Views.UserProfileShow({
+      model: this.model,
+      collection: Facebook.users
+    });
+
+    this.$el.prepend(userProfileShowView.render().$el);
 
     return this;
   },

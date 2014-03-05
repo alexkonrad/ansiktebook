@@ -9,11 +9,12 @@ Facebook.Views.PostsIndex = Backbone.View.extend({
     "click .profile-users-index-link" : "users"
   },
   render: function() {
+
     var renderedProfileNavView = JST['shared/profile_nav']({
       user: this.model
     });
-    console.log(this.el)
-    this.$el.html(renderedProfileNavView);
+
+    this.$el.append(renderedProfileNavView);
 
     var postNewView = new Facebook.Views.PostNew({
       collection: this.collection
@@ -29,13 +30,16 @@ Facebook.Views.PostsIndex = Backbone.View.extend({
 
       that.$el.append(postShowView.render().$el);
 
-      var renderedPost = that.template({
-        post: post
-      });
-
-      that.$el.append(renderedPost);
-      console.log(that.el)
     });
+
+    this.$('.in-posts').wrapAll("<div class=\"posts\">");
+
+    var userProfileShowView = new Facebook.Views.UserProfileShow({
+      model: this.model,
+      collection: Facebook.users
+    });
+
+    this.$el.prepend(userProfileShowView.render().$el);
 
     return this;
   },

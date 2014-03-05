@@ -1,6 +1,6 @@
 Facebook.Views.PhotoShow = Backbone.View.extend({
   template: JST['photos/show'],
-  className: "photo",
+  className: "in-posts photo",
   initialize: function() {
     this.listenTo(this.model, "all", this.render)
   },

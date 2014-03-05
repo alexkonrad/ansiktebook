@@ -11,7 +11,7 @@ Facebook.Views.CommentsForm = Backbone.View.extend({
 
   render: function () {
     var renderedCommentForm = this.template({
-      post: this.collection.post
+      commentable_id: this.collection.commentable_id
     });
 
     this.$el.html(renderedCommentForm);

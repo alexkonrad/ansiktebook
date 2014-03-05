@@ -1,0 +1,17 @@
+<img src="<%= user.escape('large_profile_picture') %>"
+   height=300
+   width=300>
+
+<table>
+<tr>
+  <td>Email</td>
+  <td><%= user.escape('email') %></td>
+</tr>
+<tr>
+  <td>Birthday</td>
+  <td><%= user.escape('birthday') %></td>
+</tr>
+</table>
+<div class="about">
+<%= user.escape('about') %>
+</div>

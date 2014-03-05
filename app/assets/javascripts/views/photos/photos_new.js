@@ -1,5 +1,5 @@
 Facebook.Views.PhotoNew = Backbone.View.extend({
-  className: "photo-form post-form group",
+  className: "in-posts photo-form post-form group",
   template: JST["photos/new"],
   intialize: function () {
   },

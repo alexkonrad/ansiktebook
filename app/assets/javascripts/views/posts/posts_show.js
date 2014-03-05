@@ -1,6 +1,6 @@
 Facebook.Views.PostShow = Backbone.View.extend({
   template: JST['posts/show'],
-  className: "post",
+  className: "in-posts post",
   initialize: function() {
     this.listenTo(this.model, "all", this.render)
   },

@@ -12,10 +12,17 @@ window.Facebook = {
     Facebook.users.fetch({
       success: function (users, response) {
         Facebook.currentUser = users.findWhere({id: response.current_user_id});
-        new Facebook.Routers.Profile({
-          $rootEl: $(".posts"),
+
+        new Facebook.Routers.Posts({
+          $rootEl: $(".wrapper"),
           users: Facebook.users
-        })
+        });
+
+        // new Facebook.Routers.Profile({
+        //   $rootEl: $(".profile"),
+        //   user: Facebook.currentUser
+        // });
+
         Backbone.history.start();
       }
     });
