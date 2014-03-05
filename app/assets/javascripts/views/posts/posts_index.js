@@ -6,7 +6,6 @@ Facebook.Views.PostsIndex = Backbone.View.extend({
   },
   events: {
     "click .profile-photos-index-link" : "photos",
-    "click .profile-users-index-link" : "users"
   },
   render: function() {
 
@@ -50,10 +49,4 @@ Facebook.Views.PostsIndex = Backbone.View.extend({
 	Backbone.history.navigate();
     Backbone.history.navigate(url);
   },
-
-  users: function() {
-    event.preventDefault();
-    var url = '#/users';
-    Backbone.history.navigate(url);
-  }
 });

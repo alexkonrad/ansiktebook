@@ -2,7 +2,9 @@ class PostsController < ApplicationController
   # => TODO: add before_filter logged-in
 
   def index
-    @posts = current_user.received_posts
+    # @posts = current_user.received_posts
+    user = User.find(params[:user_id])
+    @posts = user.received_posts
   end
 
   def show

@@ -23,14 +23,6 @@ Facebook.Routers.Posts = Backbone.Router.extend({
 
   user: function(id) {
     id = parseInt(id);
-    // var that = this;
-    // Facebook.users.fetch({
-    //   success: function(users) {
-    //     var user = users.findWhere({ id: id });
-    //
-    //     that.posts(user.get('id'))
-    //   }
-    // })
 
     this.posts(id)
   },
@@ -45,6 +37,7 @@ Facebook.Routers.Posts = Backbone.Router.extend({
 
   photos: function (id) {
     // TODO: this should be prefetched at startup
+    alert(id)
     var photos = new Facebook.Collections.Photos(null, { user_id: parseInt(id) });
     var that = this;
     photos.fetch({
@@ -63,6 +56,7 @@ Facebook.Routers.Posts = Backbone.Router.extend({
 
   posts: function (id) {
     // TODO: this should be prefetched at startup
+    alert(id)
     var posts = new Facebook.Collections.Posts(null, { user_id: parseInt(id) });
     var that = this;
     posts.fetch({

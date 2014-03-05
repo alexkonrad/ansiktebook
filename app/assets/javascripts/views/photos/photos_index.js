@@ -1,13 +1,11 @@
 Facebook.Views.PhotosIndex = Backbone.View.extend({
   template: JST['photos/index'],
-  // className: "user-photos-index",
 
   initialize: function () {
     this.listenTo(this.collection, "add remove", this.render);
   },
   events: {
     "click .profile-posts-index-link" : "posts",
-    "click .profile-users-index-link" : "users"
   },
 
   render: function() {
@@ -52,12 +50,4 @@ Facebook.Views.PhotosIndex = Backbone.View.extend({
       replace: true
     });
   },
-
-  users: function() {
-    event.preventDefault();
-    var url = '#/users';
-    Backbone.history.navigate(url, {
-      replace: true
-    });
-  }
 });
