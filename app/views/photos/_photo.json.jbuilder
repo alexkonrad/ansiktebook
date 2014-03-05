@@ -10,7 +10,8 @@ end
 
 json.comments photo.comments do |comment|
   json.(comment, :id, :body, :created_at)
-  json.post_id post.id
+  json.commentable_id photo.id
+  json.commentable_type "Photo"
   json.user do |json|
     json.(comment.author, :id, :username, :profile_picture)
     json.profile_picture comment.author.profile_picture.url(:small)

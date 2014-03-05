@@ -43,6 +43,7 @@ Facebook.Views.PostsIndex = Backbone.View.extend({
   photos: function() {
     event.preventDefault();
     var url = '#/users/' + this.model.get('id') + "/photos"
+	Backbone.history.navigate();
     Backbone.history.navigate(url);
   },
 
