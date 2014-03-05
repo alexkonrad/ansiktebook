@@ -27,6 +27,7 @@
   <% if logged_in? %>
   <script>
     $(document).ready(function(){
+      event.preventDefault();
       Facebook.initialize();
     });
   </script>
