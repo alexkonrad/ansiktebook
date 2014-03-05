@@ -22,7 +22,7 @@ Facebook.Views.PostNew = Backbone.View.extend({
 
     var model = new Facebook.Models.Post(data);
     model.set({
-      recipient: Facebook.currentUser,
+      recipient: this.model,
       author: Facebook.currentUser,
       likes: {}
     });

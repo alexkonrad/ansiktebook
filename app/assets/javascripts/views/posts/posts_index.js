@@ -16,7 +16,8 @@ Facebook.Views.PostsIndex = Backbone.View.extend({
     this.$el.html(renderedProfileNavView);
 
     var postNewView = new Facebook.Views.PostNew({
-      collection: this.collection
+      collection: this.collection,
+      model: this.model
     });
 
     this.$el.append(postNewView.render().$el);
