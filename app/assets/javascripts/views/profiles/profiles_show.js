@@ -3,6 +3,7 @@ Facebook.Views.UserProfileShow = Backbone.View.extend({
   className: "profile",
 
   initialize: function () {
+
   },
 
   render: function () {
@@ -11,6 +12,12 @@ Facebook.Views.UserProfileShow = Backbone.View.extend({
     });
 
     this.$el.html(renderedProfile);
+
+    var renderedUsersIndexView = new Facebook.Views.UsersIndex({
+      collection: this.collection
+    });
+
+    this.$el.append(renderedUsersIndexView.render().$el);
 
     return this;
   }

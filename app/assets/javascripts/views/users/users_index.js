@@ -12,11 +12,11 @@ Facebook.Views.UsersIndex = Backbone.View.extend({
   },
 
   render: function () {
-    var renderedProfileNavView = JST['shared/profile_nav']({
-      user: Facebook.currentUser
-    });
-
-    this.$el.html(renderedProfileNavView);
+    // var renderedProfileNavView = JST['shared/profile_nav']({
+    //   user: Facebook.currentUser
+    // });
+    //
+    // this.$el.html(renderedProfileNavView);
 
     var that = this;
     this.collection.each(function(user) {
