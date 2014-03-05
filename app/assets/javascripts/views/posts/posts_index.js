@@ -13,7 +13,7 @@ Facebook.Views.PostsIndex = Backbone.View.extend({
       user: this.model
     });
 
-    this.$el.append(renderedProfileNavView);
+    this.$el.html(renderedProfileNavView);
 
     var postNewView = new Facebook.Views.PostNew({
       collection: this.collection
@@ -35,7 +35,7 @@ Facebook.Views.PostsIndex = Backbone.View.extend({
 
     var userProfileShowView = new Facebook.Views.UserProfileShow({
       model: this.model,
-      collection: Facebook.users
+      collection: this.collection
     });
 
     this.$el.prepend(userProfileShowView.render().$el);
