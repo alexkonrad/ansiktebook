@@ -10,9 +10,6 @@ class LikesController < ApplicationController
 
     if request.xhr?
       render json: @like
-      #       render partial: "shared/unlike", locals: {
-      #   likeable: @like.likeable
-      # }
     else
       flash[:notices] = ["liked"]
       redirect_to :back
@@ -20,16 +17,12 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    # @like = current_user.likes.where(likeable_id: params[:likeable_id]).first!
     @like = current_user.likes.where(id: params[:id]).first!
 
     @like.destroy
 
     if request.xhr?
       render json: @like
-      #       render partial: "shared/like", locals: {
-      #   likeable: @like.likeable
-      # }
     else
       flash[:notices] = ["unliked"]
       redirect_to :back

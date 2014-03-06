@@ -3,7 +3,7 @@ Facebook.Models.Post = Backbone.Model.extend({
     resp.author = new Facebook.Models.User(resp["author"]);
     resp.recipient = new Facebook.Models.User(resp["recipient"]);
     resp.comments = new Facebook.Collections.Comments(resp["comments"], {
-      post: this
+      commentable: this
     });
 	resp.likes = new Facebook.Collections.Likes(resp["likes"], {
 		likeable: this

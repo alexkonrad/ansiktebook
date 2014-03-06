@@ -1,4 +1,17 @@
 class CommentsController < ApplicationController
+  def index
+    @comments = Post.find(params[:post_id]).comments
+
+    respond_to do |format|
+      format.json do
+        render json: render_to_string(
+          template: 'comments/index.json.jbuilder',
+          locals: { comments: @comments }
+        )
+      end
+    end
+  end
+
   def create
     @comment = current_user.comments.create(params[:comment])
     user = (@comment.commentable_type == "Post") ? @comment.commentable.author : @comment.commentable.user
