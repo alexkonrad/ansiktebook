@@ -1,20 +1,9 @@
 <div class="post-footer">
   <div class="post-footer-item">
-    <%= post.get('likes').count %>
-    <%= post.get('likes').count == 1 ? "like" : "likes" %>
+    <%= post.get('liking_user_ids').length %>
+    <%= post.get('liking_user_ids').length == 1 ? "like" : "likes" %>
 
     · posted <%= post.escape('created_at') %> ago
 
-  </div>
-  <div class="likes">
-    <div class="post-footer-item">
-        <a class="unlike <% if (!_.contains(post.get('liking_user_ids'), Facebook.currentUser.id)) { %> can-like <% } %>">
-          Unlike
-        </a>
-        <a class="like <% if (!_.contains(post.get('liking_user_ids'), Facebook.currentUser.id)) { %> can-like <% } %>">
-          Like
-        </a>
-        <%= post.escape('liking_user_ids')%>
-    </div>
   </div>
 </div>

@@ -22,8 +22,8 @@ json.comments post.comments do |comment|
   end
 end
 
-json.likes do |json|
-  json.(post.likes, :count)
+json.likes post.likes do |like|
+  json.(like, :likeable_id, :likeable_type, :user_id)
 end
 
 json.liking_user_ids post.likes.pluck(:user_id)

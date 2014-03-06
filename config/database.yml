@@ -7,8 +7,6 @@ development:
   adapter: postgresql
   database: facebook_development
   host: localhost
-  username: appacademy
-  password:
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -17,5 +15,3 @@ test:
   adapter: postgresql
   database: facebook_test
   host: localhost
-  username: appacademy
-  password:

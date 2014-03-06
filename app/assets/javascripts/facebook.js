@@ -18,11 +18,6 @@ window.Facebook = {
           users: Facebook.users
         });
 
-        // new Facebook.Routers.Profile({
-        //   $rootEl: $(".profile"),
-        //   user: Facebook.currentUser
-        // });
-
         Backbone.history.start();
       }
     });
