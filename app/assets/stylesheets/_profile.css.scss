@@ -7,9 +7,15 @@
 
 .profile {
   float: left;
+//  background: #F7F7F7;
   background: transparent;
-  width: 300px;
+//border: 1px solid lightgray;
+  width: 302px;
 //  padding: 10px;
+  img {
+    display: block;
+    border: 1px solid lightgray;
+  }
 }
 
 .user-profile {
@@ -18,10 +24,10 @@
 
 .about {
   border: 1px solid lightgray;
-  margin: 10px;
+  margin: 20px 0;
   padding: 10px;
   height: 100px;
-  background: white;
+  background: #F7F7F7;
 }
 
 .profile-nav-item {

@@ -25,7 +25,7 @@
 
   .user-show-username {
     display: none;
-    top: 110px;
+    top: 70px;
     padding: 10px;
     color: white;
     position: absolute;
@@ -39,6 +39,13 @@
     display: block;
   }
 };
+
+.overlay {
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
 
 .overlay:before {
     content: "";
