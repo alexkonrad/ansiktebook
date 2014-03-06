@@ -38,7 +38,8 @@ Facebook.Views.LikesCreate = Backbone.View.extend({
 
         this.model.get('likes').create({
           likeable_id: this.model.get('id'),
-          likeable_type: "Post"
+          likeable_type: "Post",
+          user_id: Facebook.currentUser.get('id')
         });
   }
 });

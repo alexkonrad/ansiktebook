@@ -2,7 +2,7 @@ Facebook.Views.CommentsForm = Backbone.View.extend({
   tagName: "form",
   className: "post-footer-item new-comment",
   template: JST["comments/new"],
-  intialize: function () {
+  initialize: function () {
   },
 
   events: {

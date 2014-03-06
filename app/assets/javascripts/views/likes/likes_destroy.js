@@ -23,7 +23,6 @@ Facebook.Views.LikesDestroy = Backbone.View.extend({
 
   submit: function (event) {
 	  event.preventDefault();
-    alert('unliking!')
 	  var data = this.$el.serializeJSON();
 
 	  var model = this.model.get('likes').findWhere({

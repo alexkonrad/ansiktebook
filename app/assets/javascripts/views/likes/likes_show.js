@@ -4,16 +4,15 @@ Facebook.Views.LikesShow = Backbone.View.extend({
   template: JST["likes/show"],
 
   initialize: function () {
-	  this.listenTo(this.model.get('likes'), "add remove", this.render)
   },
 
   render: function () {
-    if (_.contains(this.model.get('liking_user_ids'), Facebook.currentUser.get('id'))) {
-        var likesDestroyView = new Facebook.Views.LikesDestroy({
-          model: this.model
-        });
+    if (this.collection.findWhere({ user_id: Facebook.currentUser.get('id') })) {
+      var likesDestroyView = new Facebook.Views.LikesDestroy({
+        model: this.model
+      });
 
-        this.$el.html(likesDestroyView.render().$el);
+      this.$el.html(likesDestroyView.render().$el);
     } else {
       this.$el.addClass('can-like');
 
