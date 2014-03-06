@@ -183,32 +183,32 @@ a .display-comment-link {
 	}
 }
 
-//.like {
-//  display: none;
-//}
-//.unlike {
-//  display: inline;
-//}
-//
-//.can-like .like {
-//  display: inline;
-//}
-//.can-like .unlike {
-//  display: none;
-//}
+.like {
+  display: none;
+}
+.unlike {
+  display: inline;
+}
+
+.can-like > .like {
+  display: inline;
+}
+.can-like > .unlike {
+  display: none;
+}
 .unlike {
   display: inline;
   .can-like: {
     display: none;
   };
 }
-
-.like {
-  display: none;
-  .can-like: {
-    display: inline;
-  };
-}
+//
+//.like {
+//  display: none;
+//  .can-like: {
+//    display: inline;
+//  };
+//}
 
 input[type="text"] {
   font-size: 13px;

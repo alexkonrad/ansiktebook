@@ -1,10 +1,10 @@
 Facebook.Views.LikesShow = Backbone.View.extend({
   className: "post-footer-item likes",
-
+  className: "likes",
   template: JST["likes/show"],
-  
+
   initialize: function () {
-	  this.listenTo(this.model, "all", this.render)
+	  this.listenTo(this.model.get('likes'), "add remove", this.render)
   },
 
   render: function () {
@@ -15,7 +15,7 @@ Facebook.Views.LikesShow = Backbone.View.extend({
 
         this.$el.html(likesDestroyView.render().$el);
     } else {
-      this.className = "likes can-like";
+      this.$el.addClass('can-like');
 
       var likesCreateView = new Facebook.Views.LikesCreate({
         model: this.model
@@ -23,8 +23,6 @@ Facebook.Views.LikesShow = Backbone.View.extend({
 
       this.$el.html(likesCreateView.render().$el);
     }
-	
-	console.log(this.el)
 
     return this;
   }

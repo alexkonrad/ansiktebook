@@ -3,7 +3,12 @@ Facebook.Views.LikesCreate = Backbone.View.extend({
   className: "like",
   template: JST["likes/like"],
   events: {
-	  "click .like" : "submit"
+	  "submit" : "submit"
+  },
+
+  initialize: function () {
+	  this.listenTo(this.model, "all", this.render)
+
   },
 
   render: function () {
@@ -15,23 +20,25 @@ Facebook.Views.LikesCreate = Backbone.View.extend({
 
     return this;
   },
-  
+
   submit: function (event) {
-	  event.preventDefault();
-	  
-	  var data = this.$el.serializeJSON();
-	  var model = new Facebook.Models.Like();
-	  
-	  model.set({
-		  likeable_id: this.model.get('id'),
-		  likeable_type: "Post"
-	  });
-	  
-	  var that = this;
-	  model.save({}, {
-		  success: function (model) {
-			  that.collection.push(model);
-		  }
-	  });
+    event.preventDefault();
+
+    var data = this.$el.serializeJSON();
+    // var model = new Facebook.Models.Like();
+    //
+    // model.set({
+    //   likeable_id: this.model.get('id'),
+    //   likeable_type: "Post"
+    // });
+    //
+    // model.save();
+    //
+    // this.model.get('likes').push(model);
+
+        this.model.get('likes').create({
+          likeable_id: this.model.get('id'),
+          likeable_type: "Post"
+        });
   }
 });
