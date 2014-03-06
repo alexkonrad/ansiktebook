@@ -19,8 +19,9 @@
 
   .user-show-username {
     display: none;
-    top: 60px;
+    top: 56px;
     padding: 10px;
+    font-size: 13px;
     color: white;
     position: absolute;
     z-index: 1;
@@ -59,5 +60,5 @@ background: none;
 
 .overlay:hover:before {
 //    background: none;
-background: rgba(0,0,0, 0.5);
+background: rgba(0,0,0, 0.8);
 }

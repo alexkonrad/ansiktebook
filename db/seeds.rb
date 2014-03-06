@@ -60,7 +60,7 @@ users.push(User.new({
     email: "donna@example.com",
     birthday: 16.years.ago,
     about: "Do you think that if you were falling in space... that you'd slow down after a while, or go faster and faster?",
-    profile_picture: File.new("test/fixtures/audrey-horne.jpg")
+    profile_picture: File.new("test/fixtures/donna-hayward.jpeg")
 }))
 
 users.each do |user|

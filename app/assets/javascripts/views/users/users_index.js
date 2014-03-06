@@ -1,51 +1,30 @@
 Facebook.Views.UsersIndex = Backbone.View.extend({
   className: "users-index",
-
-  // template: JST['users/show'],
   initialize: function() {
   },
 
   events: {
     "click .profile-photos-index-link" : "photos",
     "click .profile-posts-index-link" : "posts",
-    // "click .user-show-link" : "show"
   },
 
   render: function () {
-    // var renderedProfileNavView = JST['shared/profile_nav']({
-    //   user: Facebook.currentUser
-    // });
-    //
-    // this.$el.html(renderedProfileNavView);
 
     var that = this;
-    this.collection.each(function(user) {
-      // var renderedUser = that.template({
-      //   user: user
-      // });
-      //
-      // that.$el.append(renderedUser);
-      var userShowView = new Facebook.Views.UserShow({
-        model: user
-      });
+    _.each(this.collection.first(9), function(user) {
 
-      that.$el.append(userShowView.render().$el);
+      if (user.get('id') != Facebook.currentUser.get('id')) {
+        var userShowView = new Facebook.Views.UserShow({
+          model: user
+        });
 
-      // var renderedUser = that.template({
-      //   user: user
-      // });
-      //
-      // that.$el.append(renderedUser);
+        that.$el.append(userShowView.render().$el);
+      }
+
     });
 
     return this;
   },
-
-  // show: function (event) {
-  //   event.preventDefault();
-  //   var url = "#/users/" + this.model.get('id');
-  //   Backbone.history.navigate(url);
-  // },
 
   photos: function() {
     event.preventDefault();
