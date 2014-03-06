@@ -23,14 +23,17 @@ class SessionsController < ApplicationController
   end
 
   def demo
-    user = User.find_by_username("Alex Konrad")
+    user = User.find_by_username("Dale Cooper")
     if user.nil?
-      user = User.create({
-        username: "Alex Konrad",
-        email: "alexkonrad08@gmail.com",
-        birthday: "1990-01-26"
+      user = User.new({
+        username: "Dale Cooper",
+        email: "dale@example.com",
+        birthday: 35.years.ago,
+        about: "We're going to need some more coffee",
+        profile_picture: File.new("test/fixtures/dale-cooper.jpg")
       })
       user.password = "amkamk"
+      user.save
     end
     sign_in(user)
     redirect_to static_pages_url

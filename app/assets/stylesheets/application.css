@@ -70,7 +70,8 @@ img {
 }
 
 .wrapper {
-  margin: 1000px auto;
+  margin: auto;
+  width: 1000px;
   margin-top: 10px;
 }
 
@@ -125,10 +126,6 @@ input[type="date"] {
   float: right;
   margin-right: 5px;
 }
-
-
-
-
 
 
 /*    .comment-image .comment-content .comment-text {

@@ -1,3 +1,36 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.splash {
+  padding: 20px;
+  background: white;
+  position: relative;
+  height: 600px;
+}
+.demo-button {
+  position: relative;
+  background: #2D4689;
+  color: white;
+  float: left;
+  width: 125px;
+  height: 50px;
+  border-radius: 10px;
+  margin: 100px;
+
+  a {
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    left: 33px;
+    top: 13px;
+  }
+
+  a:hover {
+    text-decoration: none;
+  };
+}
+
+.user-form {
+  float: right;
+  width: 600px;
+}
