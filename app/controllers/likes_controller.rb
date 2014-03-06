@@ -21,7 +21,7 @@ class LikesController < ApplicationController
 
   def destroy
     # @like = current_user.likes.where(likeable_id: params[:likeable_id]).first!
-    @like = current_user.likes.where(likeable_id: params[:id]).first!
+    @like = current_user.likes.where(id: params[:id]).first!
 
     @like.destroy
 

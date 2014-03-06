@@ -35,7 +35,7 @@ Facebook.Views.CommentsForm = Backbone.View.extend({
       }
     });
 
-    this.collection.push(model);
+    this.collection.add(model);
 
   }
 })

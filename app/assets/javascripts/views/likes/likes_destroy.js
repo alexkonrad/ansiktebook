@@ -29,10 +29,6 @@ Facebook.Views.LikesDestroy = Backbone.View.extend({
 		  user_id: Facebook.currentUser.get('id')
 	  });
 
-    model.set({
-      id: 1
-    })
-
     console.log(model)
 
     model.destroy();
