@@ -35,6 +35,14 @@
   };
 }
 
+.new-notifications {
+  display: none;
+}
+
+.has-notifications > .new-notifications {
+  display: block;
+}
+
 .show-notifications {
   display: block;
 }
