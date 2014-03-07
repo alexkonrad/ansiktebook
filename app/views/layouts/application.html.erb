@@ -29,6 +29,11 @@
     $(document).ready(function(){
       event.preventDefault();
       Facebook.initialize();
+
+      $('.notifications-button').on("click", function(event) {
+        event.preventDefault();
+        $('.notifications').toggleClass('show-notifications');
+      });
     });
   </script>
   <% end %>

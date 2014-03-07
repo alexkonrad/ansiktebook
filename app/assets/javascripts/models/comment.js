@@ -3,8 +3,6 @@ Facebook.Models.Comment = Backbone.Model.extend({
     this.set({
       author: new Facebook.Models.User(this.get('author'))
     })
-
-
   },
 
   urlRoot: "/comments",

@@ -7,6 +7,10 @@ json.friend_requests do |json|
   json.partial! 'users/friend_requests', collection: user.friend_requesters, as: :users
 end
 
+json.notifications do |json|
+  json.partial! 'shared/notification', collection: user.notifications.limit(10), as: :notification
+end
+
 json.posts do |json|
   json.partial! 'posts/post', collection: user.received_posts, as: :post
 end

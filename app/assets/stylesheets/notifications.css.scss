@@ -3,10 +3,33 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .notifications {
+  display: none;
   position: absolute;
-  left: 600px;
-  background: white;
+  left: 770px;
+  top: 50px;
+  background: #F7F7F7;
   border: 1px solid lightgray;
-  visibility: hidden;
-  padding: 10px
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px #888;
+  padding: 10px;
+
+  .triangle {
+    position: relative;
+    border-top: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #F7F7F7;
+    top: -40px;
+    left: 25px;
+    width: 0px;
+//    width: 0;
+  }
+}
+
+.notification {
+  padding: 10px;
+}
+
+.show-notifications {
+  display: block;
 }

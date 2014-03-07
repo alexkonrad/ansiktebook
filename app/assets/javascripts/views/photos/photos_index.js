@@ -10,6 +10,12 @@ Facebook.Views.PhotosIndex = Backbone.View.extend({
 
   render: function() {
 
+    var renderedNotifications = new Facebook.Views.NotificationsIndex({
+      collection: Facebook.currentUser.get('notifications')
+    });
+
+    this.$el.html(renderedNotifications.render().$el);
+
     var renderedProfileNavView = JST['shared/profile_nav']({
       user: this.model
     });
