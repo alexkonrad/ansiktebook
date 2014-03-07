@@ -5,9 +5,9 @@ Facebook.Models.Post = Backbone.Model.extend({
     resp.comments = new Facebook.Collections.Comments(resp["comments"], {
       commentable: this
     });
-	resp.likes = new Facebook.Collections.Likes(resp["likes"], {
-		likeable: this
-	});
+  	resp.likes = new Facebook.Collections.Likes(resp["likes"], {
+  		likeable: this
+  	});
 
     return resp;
   },

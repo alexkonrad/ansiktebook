@@ -7,12 +7,12 @@ Facebook.Views.PostFooter = Backbone.View.extend({
 	render: function () {
 	  var likeView = new Facebook.Views.LikesShow({
 	    model: this.model,
-        collection: this.collection
-      });
+      collection: this.collection
+    });
 	  this.$el.html(likeView.render().$el);
 
     var renderedPostFooter = JST['posts/post_footer']({
-      post: this.model
+      likeable: this.model
     });
 
     this.$el.append(renderedPostFooter);

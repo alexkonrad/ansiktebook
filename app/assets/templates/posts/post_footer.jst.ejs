@@ -1,8 +1,8 @@
 
   <div class="post-footer-item">
-    <%= post.get('likes').length %>
-    <%= post.get('likes').length == 1 ? "like" : "likes" %>
+    <%= likeable.get('likes').length %>
+    <%= likeable.get('likes').length == 1 ? "like" : "likes" %>
 
-    · posted <%= post.escape('created_at') %> ago
+    · posted <%= likeable.escape('created_at') %> ago
 
   </div>
