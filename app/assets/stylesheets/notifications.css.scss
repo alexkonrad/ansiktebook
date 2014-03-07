@@ -12,6 +12,7 @@
   border-radius: 5px;
   box-shadow: 1px 1px 3px #888;
   padding: 10px;
+  z-index: 3;
 
   .triangle {
     position: relative;
@@ -22,14 +23,32 @@
     top: -40px;
     left: 25px;
     width: 0px;
-//    width: 0;
   }
-}
 
-.notification {
-  padding: 10px;
+  .notification {
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+  }
+
+  .notification:last-child {
+    border-bottom: 0;
+  };
 }
 
 .show-notifications {
   display: block;
+}
+
+.new-notifications {
+  position: absolute;
+  left: 875px;
+  top: 14px;
+  width: 18px;
+  height: 18px;
+  padding: 3px;
+  text-align: center;
+  font-weight: bold;
+  background: red;
+  color: white;
+  border-radius: 18px;
 }

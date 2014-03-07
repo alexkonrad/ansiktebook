@@ -47,23 +47,23 @@ module ApplicationHelper
     return "" unless notification.notifiable
     case notification.notifiable_type
     when "Post"
-      "#{notification.notifiable.author.username} wrote on your wall".html_safe
+      "#{notification.notifiable.author.username} wrote on your wall"
     when "Comment"
       if notification.notifiable.commentable_type == "Post"
-        "#{notification.notifiable.author.username} commented on your post".html_safe
+        "#{notification.notifiable.author.username} commented on your post"
       else
-        "#{notification.notifiable.author.username} commented on your photo".html_safe
+        "#{notification.notifiable.author.username} commented on your photo"
       end
     when "Tag"
-      "#{notification.notifiable.tagger.username} tagged you in a photo".html_safe
+      "#{notification.notifiable.tagger.username} tagged you in a photo"
     when "Like"
       if notification.notifiable.likeable_type == "Post"
-        "#{notification.notifiable.user.username} liked your post".html_safe
+        "#{notification.notifiable.user.username} liked your post"
       else
-        "#{notification.notifiable.user.username} liked your photo".html_safe
+        "#{notification.notifiable.user.username} liked your photo"
       end
     when "Friendship"
-      "#{notification.notifiable.user.username} accepted your friend request".html_safe
+      "#{notification.notifiable.user.username} accepted your friend request"
     end
   end
 
