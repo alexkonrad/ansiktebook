@@ -1,15 +1,17 @@
 <div class="photo-index">
-  <% if (link) { %>
+  <% if (small) { %>
   <a class="photo-show-link">
     <img src="<%= photo.escape('photo_small') %>">
   </a>
   <% } else { %>
-  <a class="photos-index-link">
-    Back to Photos
-  </a>
-  <p>
-    <img src="<%= photo.escape('photo_large') %>">
-  </p>
+  <div class="photo-show-modal">
+    <a class="photos-index-link">
+      Back to Photos
+    </a>
+    <p>
+      <img src="<%= photo.escape('photo_large') %>">
+    </p>
+  </div>
   <div class="photo-edit">
     <% if (photo.get('user').get('id') == photo.get('current_user_id')) { %>
     <a class="delete-photo-link">Delete</a>

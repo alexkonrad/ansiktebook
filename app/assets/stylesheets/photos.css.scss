@@ -46,3 +46,26 @@
 input[type="file"] {
   width: 400px;
 }
+
+
+.photo-show-modal {
+  background: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: .95;
+
+  img {
+    position: absolute;
+    left: 500px;
+    top: 200px;
+  }
+  a {
+    position: absolute;
+    left: 500px;
+    top: 180px;
+  }
+}

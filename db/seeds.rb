@@ -67,3 +67,18 @@ users.each do |user|
   user.password = "amkamk"
   user.save
 end
+
+Photo.create([
+  {
+    filename: File.new("test/fixtures/laura-palmer.jpg"),
+    user_id: 1
+  },
+  {
+    filename: File.new("test/fixtures/leo-johnson.jpg"),
+    user_id: 1
+  },
+  {
+    filename: File.new("test/fixtures/bobby-briggs.jpg"),
+    user_id: 1
+  }
+])

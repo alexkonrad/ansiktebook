@@ -19,10 +19,9 @@ json.comments photo.comments do |comment|
   end
 end
 
-json.likes do |json|
-  json.(photo.likes, :count)
+json.likes photo.likes do |like|
+  json.(like, :id, :likeable_id, :likeable_type, :user_id)
 end
-
 
 json.liking_user_ids photo.likes.pluck(:user_id)
 
