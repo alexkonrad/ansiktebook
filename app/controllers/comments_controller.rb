@@ -20,8 +20,18 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to :back }
-      format.json { render nothing: true }
+      format.json do
+        render json: render_to_string(
+          template: 'shared/_comment.json.jbuilder',
+          locals: { comment: @comment }
+        )
+      end
     end
+
+    # respond_to do |format|
+    #   format.html { redirect_to :back }
+    #   format.json { render nothing: true }
+    # end
   end
 
   def destroy

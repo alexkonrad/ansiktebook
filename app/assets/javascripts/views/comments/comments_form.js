@@ -10,8 +10,10 @@ Facebook.Views.CommentsForm = Backbone.View.extend({
   },
 
   render: function () {
+
     var renderedCommentForm = this.template({
-      commentable_id: this.model.get('commentable_id')
+      commentable_id: this.model.get('commentable_id'),
+      commentable_type: this.model.get('commentable_type')
     });
 
     this.$el.html(renderedCommentForm);
@@ -32,9 +34,10 @@ Facebook.Views.CommentsForm = Backbone.View.extend({
     // this.collection.sync();
 
     var model = new Facebook.Models.Comment(data);
+    console.log("Model before save: ", model)
     event.currentTarget.reset();
-
     model.set({
+      commentable_type: data.commentable_type,
       author: Facebook.currentUser
     });
 

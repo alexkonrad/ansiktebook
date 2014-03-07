@@ -8,6 +8,7 @@ Facebook.Views.CommentShow = Backbone.View.extend({
     "click .delete-comment-link" : "destroy"
   },
   render: function() {
+
     var renderedComment = this.template({
       comment: this.model
     });
@@ -19,7 +20,6 @@ Facebook.Views.CommentShow = Backbone.View.extend({
   destroy: function (event) {
     event.preventDefault();
 
-    console.log(this.model)
     this.model.destroy();
   }
 })

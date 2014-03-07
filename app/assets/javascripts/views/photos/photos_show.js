@@ -46,12 +46,13 @@ Facebook.Views.PhotoShow = Backbone.View.extend({
 
     var commentFormView = new Facebook.Views.CommentsForm({
       model: this.model,
-      commentable_type: "Photo"
+      collection: this.model.get('comments')
     });
 
     this.$el.append(commentFormView.render().$el);
 
-    this.$('.in-photo-modal').wrapAll("<div class=\"photo-show-modal\">");
+    this.$('.in-photo-modal').wrapAll("<div class=\"photo-modal-box\">");
+    this.$('.photo-modal-box').wrap("<div class=\"photo-show-modal\">");
 
   },
 
