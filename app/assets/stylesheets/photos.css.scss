@@ -58,14 +58,27 @@ input[type="file"] {
   z-index: 2;
   opacity: .95;
 
-  img {
+  .in-photo-modal {
     position: absolute;
     left: 500px;
     top: 200px;
   }
-  a {
-    position: absolute;
-    left: 500px;
-    top: 180px;
+
+  img {
   }
+  a {
+    top: -20px;
+  }
+
+  .comments-index {
+    top: 300px;
+  }
+
+  .new-comment {
+    top: 500px;
+  }
+
+
+
+
 }

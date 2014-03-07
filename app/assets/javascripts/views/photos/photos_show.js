@@ -38,17 +38,21 @@ Facebook.Views.PhotoShow = Backbone.View.extend({
 
     this.$el.html(renderedPhoto);
 
-    // var photoCommentsView = new Facebook.Views.CommentsIndex({
-    //   collection: this.model.get('comments')
-    // });
-    //
-    // this.$el.append(photoCommentsView.render().$el);
-    //
-    // var commentFormView = new Facebook.Views.CommentsForm({
-    //   post: this.model,
-    // });
-    //
-    // this.$el.append(commentFormView.render().$el);
+    var photoCommentsView = new Facebook.Views.CommentsIndex({
+      collection: this.model.get('comments')
+    });
+
+    this.$el.append(photoCommentsView.render().$el);
+
+    var commentFormView = new Facebook.Views.CommentsForm({
+      model: this.model,
+      commentable_type: "Photo"
+    });
+
+    this.$el.append(commentFormView.render().$el);
+
+    this.$('.in-photo-modal').wrapAll("<div class=\"photo-show-modal\">");
+
   },
 
   index: function () {

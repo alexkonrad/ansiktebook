@@ -1,5 +1,5 @@
 Facebook.Views.CommentsIndex = Backbone.View.extend({
-  className: "comments-index",
+  className: "comments-index in-photo-modal",
   initialize: function () {
     this.listenTo(this.collection, "add remove", this.render);
   },
