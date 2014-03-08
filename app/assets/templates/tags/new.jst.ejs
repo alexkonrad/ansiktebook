@@ -1,7 +1,9 @@
 Tag someone:
-<select>
+<form>
+<select name="tagged_id">
 <% Facebook.users.each(function (user) { %>
 <option value="<%= user.get('id') %>"><%= user.get('username') %></option>
 <% }) %>
-
 </select>
+<input type="submit" value="Tag this person">
+</form>
