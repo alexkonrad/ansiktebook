@@ -20,7 +20,7 @@ json.comments photo.comments do |comment|
 end
 
 json.tags photo.tags do |tag|
-  json.(tag, :photo_id, :tagged_id, :tagger_id)
+  json.(tag, :id, :photo_id, :tagged_id, :tagger_id)
   json.tagger do |json|
     json.(tag.tagger, :username)
   end

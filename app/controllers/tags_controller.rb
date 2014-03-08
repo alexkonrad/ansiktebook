@@ -21,16 +21,19 @@ class TagsController < ApplicationController
   end
 
   def destroy
-    @tag = Tag.find_by_photo_id_and_tagged_id(params[:photo_id], params[:user_id])
-
-    if (current_user.id == @tag.tagger_id ||
-        current_user.id == @tag.tagged_id ||
-        current_user.id == @tag.photo.user_id)
-
-      @tag.destroy
-
-      flash[:notices] = ["untagged photo"]
-    end
+    @tag = Tag.find(params[:id])
+    
+    @tag.destroy
+    # @tag = Tag.find_by_photo_id_and_tagged_id(params[:photo_id], params[:user_id])
+    # 
+    # if (current_user.id == @tag.tagger_id ||
+    #     current_user.id == @tag.tagged_id ||
+    #     current_user.id == @tag.photo.user_id)
+    # 
+    #   @tag.destroy
+    # 
+    #   flash[:notices] = ["untagged photo"]
+    # end
 
     redirect_to :back
   end
