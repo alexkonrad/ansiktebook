@@ -25,22 +25,11 @@ Facebook.Views.LikesCreate = Backbone.View.extend({
     event.preventDefault();
 
     var data = this.$el.serializeJSON();
-    // var model = new Facebook.Models.Like();
-    //
-    // model.set({
-    //   likeable_id: this.model.get('id'),
-    //   likeable_type: "Post"
-    // });
-    //
-    // model.save();
-    //
-    // this.model.get('likes').push(model);
-    console.log(this.model)
-
-        this.model.get('likes').create({
-          likeable_id: this.model.get('id'),
-          likeable_type: this.model.get('commentable_type'),
-          user_id: Facebook.currentUser.get('id')
-        });
+    
+    this.model.get('likes').create({
+      likeable_id: this.model.get('id'),
+      likeable_type: this.model.get('commentable_type'),
+      user_id: Facebook.currentUser.get('id')
+    });
   }
 });

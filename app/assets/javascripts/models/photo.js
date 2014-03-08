@@ -7,6 +7,9 @@ Facebook.Models.Photo = Backbone.Model.extend({
   	resp.likes = new Facebook.Collections.Likes(resp["likes"], {
   		likeable: this
   	});
+    resp.tags = new Facebook.Collections.Tags(resp["tags"], {
+      taggable: this
+    });
 
     return resp;
   },

@@ -43,7 +43,6 @@ Facebook.Views.PhotoShow = Backbone.View.extend({
     });
     
     this.$el.append(postFooterView.render().$el.addClass('in-photo-modal'));
-    console.log(postFooterView.el)
 
     var photoCommentsView = new Facebook.Views.CommentsIndex({
       collection: this.model.get('comments')
@@ -55,6 +54,8 @@ Facebook.Views.PhotoShow = Backbone.View.extend({
       model: this.model,
       collection: this.model.get('comments')
     });
+    
+    console.log(this.model)
 
     this.$el.append(commentFormView.render().$el);
 

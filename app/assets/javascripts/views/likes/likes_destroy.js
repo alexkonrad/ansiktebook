@@ -16,7 +16,6 @@ Facebook.Views.LikesDestroy = Backbone.View.extend({
     });
 
     this.$el.html(renderedUnlikeButton);
-    console.log(this.model)
 
     return this;
   },
@@ -29,11 +28,6 @@ Facebook.Views.LikesDestroy = Backbone.View.extend({
 		  user_id: Facebook.currentUser.get('id')
 	  });
 
-    console.log(model)
-
     model.destroy();
-
-    console.log(model)
-
   }
 });
