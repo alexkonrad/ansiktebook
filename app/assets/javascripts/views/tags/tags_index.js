@@ -1,5 +1,7 @@
 Facebook.Views.TagsIndex = Backbone.View.extend({
-  initialize: function () {},
+  initialize: function () {
+    this.listenTo(this.collection, "add remove", this.render);
+  },
   className: "",
   template: JST["tags/index"],
   events: {},

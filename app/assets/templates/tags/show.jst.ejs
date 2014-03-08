@@ -1,0 +1,7 @@
+<%= tag.get('tagged').username %>
+was tagged by
+<%= tag.get('tagger').username %>
+<% if ((tag.get('tagger_id') == Facebook.currentUser.get('id')) ||
+       (tag.get('tagged_id') == Facebook.currentUser.get('id'))) { %>
+  <a class="delete-tag">Untag</a>
+<% }; %>

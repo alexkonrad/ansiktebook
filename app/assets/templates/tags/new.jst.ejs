@@ -1,0 +1,6 @@
+Tag someone:
+<select>
+<% Facebook.users.each(function (user) { %>
+<option value="<%= user.get('id') %>"><%= user.get('username') %></option>
+<% }) %>
+</select>
