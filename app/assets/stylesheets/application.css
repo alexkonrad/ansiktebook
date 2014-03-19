@@ -46,6 +46,10 @@ input[type="submit"] {
   color: inherit;
 }
 
+input[type="submit"]:focus {
+  outline: none;
+}
+
 .group {
   clear: both;
   display: table;
@@ -73,7 +77,6 @@ img {
   margin: auto;
   width: 1000px;
   margin-top: 0px;
-  
 }
 
 a {

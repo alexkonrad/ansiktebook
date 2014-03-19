@@ -30,9 +30,9 @@
 	}
 }
   .logged-out {
-    height: 100px;
+    height: 90px;
     a {
-      padding: 28px;
+      padding: 23px;
       font-size: 36px;
     }
     .login {
@@ -49,9 +49,13 @@
         color: white;
         font-size: 11px;
       }
+      #user_username, #user_password {
+        margin: 5px 0;
+        padding: 2px 5px;
+      }
     }
     input[type="submit"] {
-      margin: 34px;
+      margin: 38px 34px;
       margin-left: 20px;
     }
   }
