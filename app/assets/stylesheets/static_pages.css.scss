@@ -16,6 +16,9 @@ body {
   width: 460px;
   height: 300px;
   float: left;
+  font-family: 'Freight Sans Bold';
+  color: #333;
+  font-size: 24px;
   .demo-button {
     position: relative;
     background: #2D4689;
@@ -27,6 +30,7 @@ body {
     left: 155px;
 
     a {
+      font-family: 'Lucida Grande';
       font-size: 20px;
       padding: 15px 45px;
       width: 60px;
@@ -38,6 +42,22 @@ body {
     a:hover {
       text-decoration: none;
     };
+  }
+  .splash-info-text {
+    padding: 10px;
+      .pitch {
+        font-size: 36px;
+        text-align: center;
+        margin: 15px;
+      }
+      .info {
+        font-size: 20px;
+        margin: 10px 0;
+      }
+      .more-info {
+        font-size: 20px;
+        font-style: italic;
+      }
   }
 }
 

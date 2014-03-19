@@ -8,8 +8,14 @@
     padding: 10px 20px;
     text-decoration: none;
     font-size: 25px;
+    font-family: 'Freight Sans Bold';
     font-weight: bold;
+    letter-spacing: 1px;
     color: white;
+  }
+  
+  .logo {
+
   }
 
   .logged-in {
@@ -32,8 +38,8 @@
   .logged-out {
     height: 90px;
     a {
-      padding: 23px;
-      font-size: 36px;
+      padding: 14px;
+      font-size: 46px;
     }
     .login {
       float: right;
