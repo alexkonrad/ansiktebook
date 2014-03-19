@@ -27,14 +27,14 @@
   <input type="date"
          name="user[birthday]"
          value="<%= user.birthday || "" %>"
-         id="user_birthday"><br><br>
+         id="user_birthday"><br>
 
   <!-- <label for="user_about"></label> -->
   <input type="textarea"
          name="user[about]"
          value="<%= user.about || "" %>"
          placeholder="About"
-         id="user_about"><br><br>
+         id="user_about"><br>
 
   <!-- <label for="user_password">Password</label><br> -->
   <input type="password"
@@ -48,12 +48,14 @@
          placeholder="Confirm Password"
          id="user_password"><br>
 
-  <label for="user_profile_picture">Profile Picture</label>
+  <div class="file-upload">
+  <label for="user_profile_picture">Picture</label>    
   <input type="file"
          name="user[profile_picture]"
          accept="image/*"
          value="<%= user.profile_picture %>"
          id="user_profile_picture">
+  </div>
 
 
 

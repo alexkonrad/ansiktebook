@@ -22,8 +22,10 @@
   <!-- <%= render partial: "shared/friend_requests", collection: @users, as: :user %> -->
 <% else %>
 <div class="splash group">
-  <div class="demo-button">
-    <a href="<%= demo_url %>">Demo</a>
+  <div class="splash-info">
+    <div class="demo-button">
+      <a href="<%= demo_url %>">Demo</a>
+    </div>
   </div>
   <%= render partial: "users/form", locals: {
     user: @user,

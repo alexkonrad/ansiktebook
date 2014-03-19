@@ -2,35 +2,101 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .splash {
-  padding: 20px;
+  padding: 10px 10px;
+  margin: auto;
   background: white;
-  position: relative;
   height: 600px;
 }
-.demo-button {
+.splash-info {
   position: relative;
-  background: #2D4689;
-  color: white;
+  width: 460px;
+  height: 300px;
   float: left;
-  width: 125px;
-  height: 50px;
-  border-radius: 10px;
-  margin: 100px;
-
-  a {
-    font-size: 20px;
+  .demo-button {
+    position: relative;
+    background: #2D4689;
     color: white;
-    position: absolute;
-    left: 33px;
-    top: 13px;
-  }
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    top: 100px;
+    left: 155px;
 
-  a:hover {
-    text-decoration: none;
-  };
+    a {
+      font-size: 20px;
+      padding: 15px 45px;
+      width: 60px;
+      height: 20px;
+      color: white;
+      position: absolute;
+    }
+
+    a:hover {
+      text-decoration: none;
+    };
+  }
 }
 
 .user-form {
   float: right;
-  width: 600px;
+  background: #F7F7F7;
+  padding: 20px;
+  width: 460px;
+  height: 100%;
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="file"],
+  input[type="date"],
+  input[type="textarea"] {
+    background: white;
+    font-size: 20px;
+    width: 425px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 10px 10px;
+    color: #6D6D6D;
+    margin: 10px 5px;
+  }
+
+  input[type="date"] {
+  	border: 1px solid lightgray;
+    padding: 7px 10px;
+  }
+  
+  input[type="submit"] {
+    font-size: 15px;
+    width: 100px;
+    height: 30px;
+    margin: 10px 5px;
+  }
+  
+  .file-upload {
+    position: relative;
+    overflow: hidden;
+    width: 72px;
+    height: 15px;
+    margin: 10px 5px;
+    background: #364F8F;
+    border: 1px solid darkblue;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    padding: 6px 13px;
+  }
+
+  input[type="file"] {
+  	position: absolute;
+  	top: 0;
+  	right: 0;
+    width: 100px;
+    height: 30px;
+  	margin: 0;
+  	padding: 0;
+  	font-size: 20px;
+  	cursor: pointer;
+  	opacity: 0;
+  	filter: alpha(opacity=0);
+  }
 }
