@@ -40,11 +40,13 @@
 }
 
 .has-notifications > .new-notifications {
-  display: block;
+  //display: block;
+  display: none
 }
 
 .show-notifications {
-  display: block;
+  //display: block;
+  display: none
 }
 
 .new-notifications {
